@@ -1,0 +1,44 @@
+:root{
+  
+  --familiaFonte: 'Roboto', sans-serif;
+  --tamanhoFonte: 16px;
+  --corBgMenuSistema: #aaa;
+  --sombraBG: 0 0 10px black;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: var(--familiaFonte);
+  font-size: var(--tamanhoFonte);
+}
+
+#menu{
+  background-color: var(--corBgMenuSistema);
+  height: 100vh;
+  width: 200px;
+  box-shadow: var(--sombraBG);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul, li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.logotipo{
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
+
+.menuSair{
+  align-self: flex-end;
+}
