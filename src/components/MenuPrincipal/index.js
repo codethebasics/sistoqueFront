@@ -3,26 +3,27 @@ const MenuPrincipal = () => {
     <div id="menu">
       <div>
         <figure className="logotipo"><img src='/img/logo1.png' alt='Logotipo Kokimbos'/></figure>
-        <ul>
+        <nav><ul>
           <li>
-            <i></i>Usuário
+            Usuário
           </li>
           <li>
-            <i></i>Produto
+            Produto
           </li>
           <li>
-            <i></i>Estoque
+            Estoque
           </li>
           <li>
-            <i></i>Receita
+            Receita
           </li>
           <li>
-            <i></i>Fornecedores
+            Fornecedores
           </li>
           <li>
-            <i></i>Relatório
+           Relatório
           </li>
         </ul>
+        </nav>
       </div>
 
       <ul className="menuSair">
