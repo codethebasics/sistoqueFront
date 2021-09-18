@@ -10,7 +10,7 @@ const MenuPrincipal = () => {
               Usuário
             </li>
             <li>
-            <Link to="/produto/cadastro">
+            <Link to="/sistema/produto/cadastro">
               Produto
             </Link>
               
@@ -22,7 +22,7 @@ const MenuPrincipal = () => {
               Receita
             </li>
             <li>
-              <Link to="/fornecedor/cadastro">
+              <Link to="/sistema/fornecedor/cadastro">
                 Fornecedores
               </Link>
             </li>

@@ -3,26 +3,19 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-import MenuPrincipal from "./components/MenuPrincipal";
-import { Fornecedor } from './pages/fornecedor'
+import { Sistema } from './pages/sistema'
 import "./style.css";
 
 const App = () => {
    
   return (
     <BrowserRouter>
-      <main>
-        <MenuPrincipal/>
         <Switch>
-          <Route path="/fornecedor">
-            <Fornecedor />
+          <Route path="/sistema">
+            <Sistema />
           </Route>
         </Switch>
-        
-      </main>
     </BrowserRouter>
-    
-    
   );
 };
 
