@@ -1,22 +1,14 @@
-const Botoes = () => {
-    const botoes = [{
-        nome:"Cadastrar",
-        classe:"botaoCadastrar",
-    },
-    {
-        nome:"Limpar",
-        classe:"botaoLimpar",
-    },
-    {
-        nome:"Excluir",
-        classe:"botaoExcluir",
-    },];
-
+const Botoes = ({
+    botoes = []
+}) => {
     return (
         <div className='botoes'>
-        {botoes.map((botaoAtual) => (
-                <button className={botaoAtual.classe}>{botaoAtual.nome}</button>
-        ))}
+            {botoes.map((botaoAtual) => (
+                <button 
+                    className={botaoAtual.classe}
+                    {...botaoAtual}
+                 >{botaoAtual.nome}</button>
+            ))}
         </div>
     );
   };

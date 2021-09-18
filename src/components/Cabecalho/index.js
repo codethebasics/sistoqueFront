@@ -1,4 +1,8 @@
-const Cabecalho = () => {
+import { Link } from "react-router-dom";
+const Cabecalho = ({
+  nomeCabecalho,
+  links = []
+}) => {
   return (
     <header className="Cabecalho">
       <div className="cabecalhoTitulo">
@@ -7,14 +11,21 @@ const Cabecalho = () => {
           alt="Ícone Fornecedor"
           className="icones"
         />
-        <h1>Fornecedor</h1>
+        <h1>{nomeCabecalho}</h1>
       </div>
       <div>
-        <img
-          src="/img/fornecedor_adicionar.svg"
-          alt="Adicionar Fornecedor"
-          className="iconesMenuCabecalho"
-        />
+        {
+          links.map((link) => (
+            <Link to={link.to}>
+              <img
+                src={link.src}
+                alt="Adicionar Fornecedor"
+                className="iconesMenuCabecalho"
+                style={link.active ? { 'background-color': 'red'} : {}}
+              />
+            </Link>
+          ))
+        }
         <img
           src="/img/fornecedor_editar.svg"
           alt="Editar Fornecedor"

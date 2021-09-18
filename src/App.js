@@ -1,22 +1,27 @@
-import "./style.css";
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from 'react-router-dom'
 import MenuPrincipal from "./components/MenuPrincipal";
-import CadastroFornecedor from "./components/CadastroFornecedor";
-import Cabecalho from "./components/Cabecalho";
-import Botoes from "./components/Botoes";
-
-
+import { Fornecedor } from './pages/fornecedor'
+import "./style.css";
 
 const App = () => {
-  return (
    
-    <main>
-    <MenuPrincipal/>
-    <div>
-    <Cabecalho/>
-    <CadastroFornecedor/>
-    <Botoes/>
-    </div>
-    </main>
+  return (
+    <BrowserRouter>
+      <main>
+        <MenuPrincipal/>
+        <Switch>
+          <Route path="/fornecedor">
+            <Fornecedor />
+          </Route>
+        </Switch>
+        
+      </main>
+    </BrowserRouter>
+    
     
   );
 };
