@@ -8,6 +8,8 @@ export const inputs = [
       type: "text",
       required: true,
       tamanho: 120,
+      valid : true,
+      disabled : false,
     },
     {
       name: "nomeFantasia",
@@ -18,6 +20,8 @@ export const inputs = [
       type: "text",
       required: true,
       tamanho: 56,
+      valid : true,
+      disabled : false,
     },
     {
       name: "CNPJ",
@@ -28,6 +32,8 @@ export const inputs = [
       type: "text",
       required: true,
       tamanho: 56,
+      valid : true,
+      disabled : false,
     },
     {
       name: "telefone",
@@ -38,6 +44,8 @@ export const inputs = [
       type: "tel",
       required: false,
       tamanho: 34,
+      valid : true,
+      disabled : false,
     },
     {
       name: "celular",
@@ -48,6 +56,8 @@ export const inputs = [
       type: "tel",
       required: false,
       tamanho: 34,
+      valid : true,
+      disabled : false,
     },
     {
       name: "site",
@@ -58,6 +68,8 @@ export const inputs = [
       type: "url",
       required: false,
       tamanho: 34,
+      valid : true,
+      disabled : false,
     },
     {
       name: "representante",
@@ -68,6 +80,8 @@ export const inputs = [
       type: "text",
       required: false,
       tamanho: 34,
+      valid : true,
+      disabled : false,
 
     },
     {
@@ -79,6 +93,8 @@ export const inputs = [
       type: "tel",
       required: false,
       tamanho: 34,
+      valid : true,
+      disabled : false,
 
     },
     {
@@ -90,6 +106,8 @@ export const inputs = [
       type: "email",
       required: true,
       tamanho: 34,
+      valid : true,
+      disabled : false,
 
     },];
 
@@ -103,6 +121,8 @@ export const inputsEndereco = [
       type: "text",
       required: true,
       tamanho: 20,
+      valid : true,
+      disabled : false,
 
     },
     {
@@ -114,6 +134,8 @@ export const inputsEndereco = [
       type: "text",
       required: true,
       tamanho: 62,
+      valid : true,
+      disabled : false,
 
     },
     {
@@ -125,6 +147,8 @@ export const inputsEndereco = [
       type: "text",
       required: true,
       tamanho: 20,
+      valid : true,
+      disabled : false,
 
     },
     {
@@ -136,6 +160,8 @@ export const inputsEndereco = [
       type: "text",
       required: true,
       tamanho: 23,
+      valid : true,
+      disabled : false,
 
     },
     {
@@ -147,6 +173,8 @@ export const inputsEndereco = [
       type: "text",
       required: true,
       tamanho: 23,
+      valid : true,
+      disabled : false,
 
     },
     {
@@ -158,6 +186,8 @@ export const inputsEndereco = [
       type: "text",
       required: true,
       tamanho: 24,
+      valid : true,
+      disabled : false,
 
     },
     {
@@ -169,6 +199,8 @@ export const inputsEndereco = [
       type: "text",
       required: true,
       tamanho: 24,
+      valid : true,
+      disabled : false,
 
     },
   ];

@@ -4,6 +4,8 @@
   --tamanhoFonteMenu: 16px;
   --tamanhoFontePlaceholder: 12px;
   --tamanhoFonteTitulo: 30px;
+  --tamanhoFonteIcone: 40px;
+  --tamanhoFonteIconeInteracoes: 54px;
   --tamanhoFonteSubTitulo: 20px;
   --corBranca: #fff;
   --corPreta: #000;
@@ -90,12 +92,6 @@ li {
   justify-content: space-between;
 }
 
-.icones{
-  width: 54px;
-  height: 54px;
-  margin: 0 18px 0 0;
-}
-
 .iconesMenuCabecalho{
   width: 54px;
   height: 54px;
@@ -129,12 +125,16 @@ label{
   padding: 5px;
 }
 
-input {
+input, input:focus {
   background: var(--corBgInput);
   border: 2px solid var(--corBorderInput);
   border-radius: 10px;
   margin: 5px 0;
   padding: 5px;
+}
+
+input:focus{
+  border: 2px solid var (--corPreta);
 }
 
 input:placeholder-shown{

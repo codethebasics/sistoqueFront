@@ -4,6 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import { Sistema } from './pages/sistema'
+import "./icones/css/Glyphter.css";
 import "./style.css";
 
 const App = () => {
