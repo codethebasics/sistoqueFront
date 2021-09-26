@@ -5,28 +5,37 @@ const Cabecalho = ({
 }) => {
   return (
     <header className="Cabecalho">
-      <div className="cabecalhoTitulo">
-      <span className="iconTitulo-fornecedor"></span><h1>{nomeCabecalho}</h1>
-      </div>
+      
+        {links.map((link) => (
+          <Link to={link.to}>
+          <div className="cabecalhoTitulo">
+          <span className={"iconTitulo-" + nomeCabecalho}></span><h1>{nomeCabecalho}</h1>
+          
+          </div>
+          </Link>
+        ))}
+      
       <div>
         {
           links.map((link) => (
             <Link to={link.to}>
-              <span className="iconTituloInteracoes-fornecedor_adicionar"></span>
+              <span 
+              className={"iconTituloInteracoes-" + nomeCabecalho + "_adicionar"}
+              ></span>
             </Link>
           ))
         }
         {
           links.map((link) => (
             <Link to={link.to}>
-              <span className="iconTituloInteracoes-fornecedor_editar"></span>
+              <span className={"iconTituloInteracoes-" + nomeCabecalho + "_editar"}></span>
             </Link>
           ))
         }
         {
           links.map((link) => (
             <Link to={link.to}>
-              <span className="iconTituloInteracoes-fornecedor_excluir"></span>
+              <span className={"iconTituloInteracoes-" + nomeCabecalho + "_excluir"}></span>
             </Link>
           ))
         }

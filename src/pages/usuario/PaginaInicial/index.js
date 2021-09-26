@@ -1,25 +1,7 @@
-import Botoes from "../../../components/Botoes";
-import { inputs, inputsEndereco } from "./model";
+import { inputs, inputsEndereco, buscarUsuario } from "./model";
 import { useState } from "react";
 
-const CadastroFornecedor = () => {
-  const botoes = [
-    {
-      nome: "Cadastrar",
-      classe: "botaoCadastrar",
-      onClick: () => confirmarCamposReact(),
-    } /*
-  {
-    nome:"Excluir",
-    classe:"botaoExcluir",
-    onClick: () => excluirCampos(),
-  },*/,
-    {
-      nome: "Limpar",
-      classe: "botaoLimpar",
-      onClick: () => limparCamposReact(),
-    },
-  ];
+const ConsultarUsuario = () => {
 
   const renderizarCampos = () =>
     inputs.map((inputAtual) => (
@@ -144,21 +126,43 @@ const CadastroFornecedor = () => {
       </div>
     ));
 
+    const renderizarCamposBuscarUsuarioReact = () =>
+      buscarUsuario.map((BuscarUsuarioAtual) => (
+        <div className="itemFormulario">
+          <label for={BuscarUsuarioAtual.name}>{BuscarUsuarioAtual.label}:</label>
+          <br />
+          <select
+            placeholder={BuscarUsuarioAtual.placeholder}
+            name={BuscarUsuarioAtual.name}
+            id={BuscarUsuarioAtual.id}
+            required={BuscarUsuarioAtual.required}
+            value={BuscarUsuarioAtual.value}
+            disabled={BuscarUsuarioAtual.disabled}
+  
+          />
+        </div>
+      ));
+  
+
     const limparCamposReact = (e) => {
-      //e.preventDefault();
+      e.preventDefault();
       const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
       setInputReact(camposAtualizados)
     }
 
     const confirmarCamposReact = (e) => {
-      //e.preventDefault();
+      e.preventDefault();
       const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
       setInputReact(validarCampos)
     }
 
   return (
     <div className="Formulario">
-      <h2>Cadastro novo Fornecedor</h2>
+      <h2>Editar Usuario</h2>
+      <fieldset>
+        {/*renderizarCampos()*/}
+        {renderizarCamposBuscarUsuarioReact()}
+      </fieldset>
       <fieldset>
         {/*renderizarCampos()*/}
         {renderizarCamposReact()}
@@ -175,4 +179,4 @@ const CadastroFornecedor = () => {
   );
 };
 
-export default CadastroFornecedor;
+export default ConsultarUsuario;

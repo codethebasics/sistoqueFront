@@ -1,11 +1,11 @@
 import Botoes from "../../../components/Botoes";
-import { inputs, inputsEndereco } from "./model";
+import { inputs, inputsEndereco, buscarFornecedor } from "./model";
 import { useState } from "react";
 
-const CadastroFornecedor = () => {
+const EditarFornecedor = () => {
   const botoes = [
     {
-      nome: "Cadastrar",
+      nome: "Confirmar",
       classe: "botaoCadastrar",
       onClick: () => confirmarCamposReact(),
     } /*
@@ -144,21 +144,43 @@ const CadastroFornecedor = () => {
       </div>
     ));
 
+    const renderizarCamposBuscarFornecedorReact = () =>
+      buscarFornecedor.map((BuscarFornecedorAtual) => (
+        <div className="itemFormulario">
+          <label for={BuscarFornecedorAtual.name}>{BuscarFornecedorAtual.label}:</label>
+          <br />
+          <select
+            placeholder={BuscarFornecedorAtual.placeholder}
+            name={BuscarFornecedorAtual.name}
+            id={BuscarFornecedorAtual.id}
+            required={BuscarFornecedorAtual.required}
+            value={BuscarFornecedorAtual.value}
+            disabled={BuscarFornecedorAtual.disabled}
+  
+          />
+        </div>
+      ));
+  
+
     const limparCamposReact = (e) => {
-      //e.preventDefault();
+      e.preventDefault();
       const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
       setInputReact(camposAtualizados)
     }
 
     const confirmarCamposReact = (e) => {
-      //e.preventDefault();
+      e.preventDefault();
       const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
       setInputReact(validarCampos)
     }
 
   return (
     <div className="Formulario">
-      <h2>Cadastro novo Fornecedor</h2>
+      <h2>Editar Fornecedor</h2>
+      <fieldset>
+        {/*renderizarCampos()*/}
+        {renderizarCamposBuscarFornecedorReact()}
+      </fieldset>
       <fieldset>
         {/*renderizarCampos()*/}
         {renderizarCamposReact()}
@@ -175,4 +197,4 @@ const CadastroFornecedor = () => {
   );
 };
 
-export default CadastroFornecedor;
+export default EditarFornecedor;

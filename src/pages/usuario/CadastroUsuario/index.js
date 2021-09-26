@@ -1,8 +1,8 @@
 import Botoes from "../../../components/Botoes";
-import { inputs, inputsEndereco } from "./model";
+import { inputs, inputsLogin } from "./model";
 import { useState } from "react";
 
-const CadastroFornecedor = () => {
+const CadastroUsuario = () => {
   const botoes = [
     {
       nome: "Cadastrar",
@@ -36,17 +36,17 @@ const CadastroFornecedor = () => {
       </div>
     ));
 
-  const renderizarCamposEndereco = () =>
-    inputsEndereco.map((inputEnderecoAtual) => (
+  const renderizarCamposLogin = () =>
+    inputsLogin.map((inputLoginAtual) => (
       <div className="itemFormulario">
-        <label for={inputEnderecoAtual.name}>{inputEnderecoAtual.label}:</label>
+        <label for={inputLoginAtual.name}>{inputLoginAtual.label}:</label>
         <br />
         <input
-          placeholder={inputEnderecoAtual.placeholder}
-          name={inputEnderecoAtual.name}
-          id={inputEnderecoAtual.id}
-          type={inputEnderecoAtual.type}
-          required={inputEnderecoAtual.required}
+          placeholder={inputLoginAtual.placeholder}
+          name={inputLoginAtual.name}
+          id={inputLoginAtual.id}
+          type={inputLoginAtual.type}
+          required={inputLoginAtual.required}
         />
       </div>
     ));
@@ -58,7 +58,7 @@ const CadastroFornecedor = () => {
       document.getElementById(input.id).value = "";
     });
 
-    inputsEndereco.map((input) => {
+    inputsLogin.map((input) => {
       document.getElementById(input.id).value = "";
     });
   };
@@ -69,18 +69,18 @@ const CadastroFornecedor = () => {
     inputs.map((input) => {
       const htmlInputs = document.getElementById(input.id);
       if (htmlInputs.value != "") {
-        alert("Item Cadastrado com sucesso");
+        alert("Usuário Cadastrado com sucesso");
       } else {
         htmlInputs.style = "border: 1px solid red";
       }
     });
 
-    inputsEndereco.map((input) => {
-      const htmlInputsEndereco = document.getElementById(input.id);
-      if (htmlInputsEndereco.value != "") {
-        alert("Item Cadastrado com sucesso");
+    inputsLogin.map((input) => {
+      const htmlInputsLogin = document.getElementById(input.id);
+      if (htmlInputsLogin.value != "") {
+        alert("Usuário Cadastrado com sucesso");
       } else {
-        htmlInputsEndereco.style = "border: 1px solid red";
+        htmlInputsLogin.style = "border: 1px solid red";
       }
     });
   };
@@ -115,7 +115,7 @@ const CadastroFornecedor = () => {
       </div>
     ));
 
-  const mudarValueInputEndereco = (e, input) => {
+  const mudarValueInputLogin = (e, input) => {
       const htmlInputs = e.target;
       input.value = htmlInputs.value;
       const inputsAtualizados = inputsReact.map((inputsReactAtual) => {
@@ -125,54 +125,54 @@ const CadastroFornecedor = () => {
       setInputReact(inputsAtualizados)
     };
 
-  const renderizarCamposEnderecoReact = () =>
-    inputsEndereco.map((inputEnderecoAtual) => (
+  const renderizarCamposLoginReact = () =>
+    inputsLogin.map((inputLoginAtual) => (
       <div className="itemFormulario">
-        <label for={inputEnderecoAtual.name}>{inputEnderecoAtual.label}:</label>
+        <label for={inputLoginAtual.name}>{inputLoginAtual.label}:</label>
         <br />
         <input
-          placeholder={inputEnderecoAtual.placeholder}
-          name={inputEnderecoAtual.name}
-          id={inputEnderecoAtual.id}
-          type={inputEnderecoAtual.type}
-          required={inputEnderecoAtual.required}
-          value={inputEnderecoAtual.value}
-          disabled={inputEnderecoAtual.disabled}
-          onChange={(e) => mudarValueInputEndereco(e, inputEnderecoAtual)}
+          placeholder={inputLoginAtual.placeholder}
+          name={inputLoginAtual.name}
+          id={inputLoginAtual.id}
+          type={inputLoginAtual.type}
+          required={inputLoginAtual.required}
+          value={inputLoginAtual.value}
+          disabled={inputLoginAtual.disabled}
+          onChange={(e) => mudarValueInputLogin(e, inputLoginAtual)}
 
         />
       </div>
     ));
 
     const limparCamposReact = (e) => {
-      //e.preventDefault();
+      e.preventDefault();
       const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
       setInputReact(camposAtualizados)
     }
 
     const confirmarCamposReact = (e) => {
-      //e.preventDefault();
+      e.preventDefault();
       const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
       setInputReact(validarCampos)
     }
 
   return (
     <div className="Formulario">
-      <h2>Cadastro novo Fornecedor</h2>
+      <h2>Cadastro novo Usuario</h2>
       <fieldset>
         {/*renderizarCampos()*/}
         {renderizarCamposReact()}
       </fieldset>
       <h3>
-        <span>Endereço</span>
+        <span>Login</span>
       </h3>
       <fieldset>
-        {renderizarCamposEnderecoReact()}
-        {/*renderizarCamposEndereco()*/}
+        {renderizarCamposLoginReact()}
+        {/*renderizarCamposLogin()*/}
       </fieldset>
       <Botoes botoes={botoes} />
     </div>
   );
 };
 
-export default CadastroFornecedor;
+export default CadastroUsuario;

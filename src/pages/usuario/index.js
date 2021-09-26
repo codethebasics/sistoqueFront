@@ -5,22 +5,22 @@ import {
     useRouteMatch,
 } from 'react-router-dom'
 import Cabecalho from "../../components/Cabecalho";
-import CadastroFornecedor from './CadastroFornecedor';
-import EditarFornecedor from './EditarFornecedor';
-import ExcluirFornecedor from './ExcluirFornecedor';
-export const Fornecedor = () => {
+import CadastroUsuario from './CadastroUsuario';
+import EditarUsuario from './EditarUsuario';
+import ExcluirUsuario from './ExcluirUsuario';
+export const Usuario = () => {
     const { path } = useRouteMatch();
     const links = [
         {
-            to: `${path}/fornecedor`,
-            active: window.location.pathname === `${path}/fornecedor`,
+            to: `${path}/usuario`,
+            active: window.location.pathname === `${path}/usuario`,
         },
     ]
 
     return (
         <div>
             <Cabecalho 
-                nomeCabecalho="Fornecedor"
+                nomeCabecalho="Usuario"
                 links={links}
             />
 
@@ -28,13 +28,13 @@ export const Fornecedor = () => {
                 <Route exact path={path}>
                 </Route>
                 <Route path={`${path}/cadastro`}>
-                    <CadastroFornecedor />
+                    <CadastroUsuario />
                 </Route>
                 <Route path={`${path}/editar`}>
-                    <EditarFornecedor />
+                    <EditarUsuario />
                 </Route>
                 <Route path={`${path}/excluir`}>
-                    <ExcluirFornecedor />
+                    <ExcluirUsuario />
                 </Route>
             </Switch>
         </div>
