@@ -3,39 +3,26 @@ const Cabecalho = ({
   nomeCabecalho,
   links = []
 }) => {
+
+  console.log({ links })
   return (
     <header className="Cabecalho">
       
-        {links.map((link) => (
-          <Link to={link.to}>
+        
           <div className="cabecalhoTitulo">
-          <span className={"iconTitulo-" + nomeCabecalho}></span><h1>{nomeCabecalho}</h1>
-          
+            <span className={"iconTitulo-" + nomeCabecalho}></span>
+            <h1>{nomeCabecalho}</h1>
           </div>
-          </Link>
-        ))}
-      
       <div>
         {
           links.map((link) => (
             <Link to={link.to}>
               <span 
-              className={"iconTituloInteracoes-" + nomeCabecalho + "_adicionar"}
+              className={"iconTituloInteracoes-" + nomeCabecalho + link.iconName}
+              style={{
+                color: link.active ? 'var(--corVerde)' : 'var(--corLaranja)'
+              }}
               ></span>
-            </Link>
-          ))
-        }
-        {
-          links.map((link) => (
-            <Link to={link.to}>
-              <span className={"iconTituloInteracoes-" + nomeCabecalho + "_editar"}></span>
-            </Link>
-          ))
-        }
-        {
-          links.map((link) => (
-            <Link to={link.to}>
-              <span className={"iconTituloInteracoes-" + nomeCabecalho + "_excluir"}></span>
             </Link>
           ))
         }

@@ -8,33 +8,33 @@ const MenuPrincipal = () => {
           <ul>
             <li>
             <Link to="/sistema/usuario/PaginaInicial">
-            <span class="icon-Usuario">Usuário</span>
+            <span className="icon-Usuario">Usuário</span>
             </Link>
             </li>
             <li>
             <Link to="/sistema/produto/PaginaInicial">
-            <span class="icon-Produto">Produto</span>
+            <span className="icon-Produto">Produto</span>
             </Link>
               
             </li>
             <li>
             <Link to="/sistema/estoque/PaginaInicial">
-            <span class="icon-Estoque">Estoque</span>
+            <span className="icon-Estoque">Estoque</span>
             </Link>
             </li>
             <li>
             <Link to="/sistema/receitas/PaginaInicial">
-            <span class="icon-Receitas">Receita</span>
+            <span className="icon-Receitas">Receita</span>
             </Link>
             </li>
             <li>
               <Link to="/sistema/fornecedor/PaginaInicial">
-              <span class="icon-Fornecedor">Fornecedores</span>
+              <span className="icon-Fornecedor">Fornecedores</span>
               </Link>
             </li>
             <li>
             <Link to="/sistema/relatorios/PaginaInicial">
-            <span class="icon-Relatorios">Relatório</span>
+            <span className="icon-Relatorios">Relatório</span>
             </Link>
             </li>
         </ul>
@@ -44,7 +44,7 @@ const MenuPrincipal = () => {
       <ul className="menuSair">
         <li>
           <Link to="/sistema/login">
-          <span class="icon-sair">Sair</span>
+          <span className="icon-sair">Sair</span>
           </Link>
         </li>
       </ul>

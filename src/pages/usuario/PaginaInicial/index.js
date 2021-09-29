@@ -1,71 +1,9 @@
-import { inputs, inputsEndereco, buscarUsuario } from "./model";
+import { inputs, buscarUsuario } from "./model";
+import Botoes from '../../../components/Botoes'
 import { useState } from "react";
 
 const ConsultarUsuario = () => {
 
-  const renderizarCampos = () =>
-    inputs.map((inputAtual) => (
-      <div className="itemFormulario">
-        <label for={inputAtual.name}>{inputAtual.label}:</label>
-        <br />
-        <input
-          placeholder={inputAtual.placeholder}
-          name={inputAtual.name}
-          id={inputAtual.id}
-          type={inputAtual.type}
-          required={inputAtual.required}
-        />
-      </div>
-    ));
-
-  const renderizarCamposEndereco = () =>
-    inputsEndereco.map((inputEnderecoAtual) => (
-      <div className="itemFormulario">
-        <label for={inputEnderecoAtual.name}>{inputEnderecoAtual.label}:</label>
-        <br />
-        <input
-          placeholder={inputEnderecoAtual.placeholder}
-          name={inputEnderecoAtual.name}
-          id={inputEnderecoAtual.id}
-          type={inputEnderecoAtual.type}
-          required={inputEnderecoAtual.required}
-        />
-      </div>
-    ));
-
-  const limparCampos = (e) => {
-    //e.preventDefault();
-
-    inputs.map((input) => {
-      document.getElementById(input.id).value = "";
-    });
-
-    inputsEndereco.map((input) => {
-      document.getElementById(input.id).value = "";
-    });
-  };
-
-  const confirmarCampos = (e) => {
-    //e.preventDefault();
-
-    inputs.map((input) => {
-      const htmlInputs = document.getElementById(input.id);
-      if (htmlInputs.value != "") {
-        alert("Item Cadastrado com sucesso");
-      } else {
-        htmlInputs.style = "border: 1px solid red";
-      }
-    });
-
-    inputsEndereco.map((input) => {
-      const htmlInputsEndereco = document.getElementById(input.id);
-      if (htmlInputsEndereco.value != "") {
-        alert("Item Cadastrado com sucesso");
-      } else {
-        htmlInputsEndereco.style = "border: 1px solid red";
-      }
-    });
-  };
 
   const [inputsReact, setInputReact] = useState(inputs);
 
@@ -107,24 +45,24 @@ const ConsultarUsuario = () => {
       setInputReact(inputsAtualizados)
     };
 
-  const renderizarCamposEnderecoReact = () =>
-    inputsEndereco.map((inputEnderecoAtual) => (
-      <div className="itemFormulario">
-        <label for={inputEnderecoAtual.name}>{inputEnderecoAtual.label}:</label>
-        <br />
-        <input
-          placeholder={inputEnderecoAtual.placeholder}
-          name={inputEnderecoAtual.name}
-          id={inputEnderecoAtual.id}
-          type={inputEnderecoAtual.type}
-          required={inputEnderecoAtual.required}
-          value={inputEnderecoAtual.value}
-          disabled={inputEnderecoAtual.disabled}
-          onChange={(e) => mudarValueInputEndereco(e, inputEnderecoAtual)}
+  // const renderizarCamposEnderecoReact = () =>
+  //   inputsEndereco.map((inputEnderecoAtual) => (
+  //     <div className="itemFormulario">
+  //       <label for={inputEnderecoAtual.name}>{inputEnderecoAtual.label}:</label>
+  //       <br />
+  //       <input
+  //         placeholder={inputEnderecoAtual.placeholder}
+  //         name={inputEnderecoAtual.name}
+  //         id={inputEnderecoAtual.id}
+  //         type={inputEnderecoAtual.type}
+  //         required={inputEnderecoAtual.required}
+  //         value={inputEnderecoAtual.value}
+  //         disabled={inputEnderecoAtual.disabled}
+  //         onChange={(e) => mudarValueInputEndereco(e, inputEnderecoAtual)}
 
-        />
-      </div>
-    ));
+  //       />
+  //     </div>
+  //   ));
 
     const renderizarCamposBuscarUsuarioReact = () =>
       buscarUsuario.map((BuscarUsuarioAtual) => (
@@ -171,10 +109,9 @@ const ConsultarUsuario = () => {
         <span>Endereço</span>
       </h3>
       <fieldset>
-        {renderizarCamposEnderecoReact()}
+        {/* {renderizarCamposEnderecoReact()} */}
         {/*renderizarCamposEndereco()*/}
       </fieldset>
-      <Botoes botoes={botoes} />
     </div>
   );
 };

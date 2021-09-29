@@ -175,7 +175,7 @@ const ConsultarFornecedor = () => {
         {renderizarCamposEnderecoReact()}
         {/*renderizarCamposEndereco()*/}
       </fieldset>
-      <Botoes botoes={botoes} />
+      {/* <Botoes botoes={botoes} /> */}
     </div>
   );
 };

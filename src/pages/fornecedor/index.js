@@ -12,8 +12,19 @@ export const Fornecedor = () => {
     const { path } = useRouteMatch();
     const links = [
         {
-            to: `${path}/fornecedor`,
-            active: window.location.pathname === `${path}/fornecedor`,
+            to: `${path}/cadastro`,
+            active: window.location.pathname === `${path}/cadastro`,
+            iconName: '_adicionar'
+        },
+        {
+            to: `${path}/editar`,
+            active: window.location.pathname === `${path}/editar`,
+            iconName: '_editar'
+        },
+        {
+            to: `${path}/excluir`,
+            active: window.location.pathname === `${path}/excluir`,
+            iconName: '_excluir'
         },
     ]
 
