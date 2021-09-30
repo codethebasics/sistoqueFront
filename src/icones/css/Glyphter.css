@@ -19,6 +19,7 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    padding: 5px;
+   color: var (--corPreta);
 }
 
 
@@ -56,40 +57,49 @@
 .iconTituloInteracoes-Fornecedor_excluir:before{content:'\0043';}
 .iconTituloInteracoes-Fornecedor_editar:before{content:'\0044';}
 
-.icon-Usuario:before{content:'\0045';}
-.icon-Usuario_adicionar:before{content:'\0046';}
-.icon-Usuario_excluir:before{content:'\0047';}
-.icon-Usuario_editar:before{content:'\0048';}
-.iconTituloInteracoes-Usuario_adicionar:before{content:'\0042';}
-.iconTituloInteracoes-Usuario_excluir:before{content:'\0043';}
-.iconTituloInteracoes-Usuario_editar:before{content:'\0044';}
+.icon-Usuário:before{content:'\0045';}
+.icon-Usuário_adicionar:before{content:'\0046';}
+.icon-Usuário_excluir:before{content:'\0047';}
+.icon-Usuário_editar:before{content:'\0048';}
+.iconTitulo-Usuário:before{content:'\0045';}
+.iconTituloInteracoes-Usuário_adicionar:before{content:'\0046';}
+.iconTituloInteracoes-Usuário_excluir:before{content:'\0047';}
+.iconTituloInteracoes-Usuário_editar:before{content:'\0048';}
 
 .icon-Estoque:before{content:'\0049';}
 .icon-Estoque_adicionar:before{content:'\004a';}
 .icon-Estoque_excluir:before{content:'\004b';}
 .icon-Estoque_editar:before{content:'\004c';}
-.iconTituloInteracoes-Estoque_adicionar:before{content:'\0042';}
-.iconTituloInteracoes-Estoque_excluir:before{content:'\0043';}
-.iconTituloInteracoes-Estoque_editar:before{content:'\0044';}
+.iconTitulo-Estoque:before{content:'\0049';}
+.iconTituloInteracoes-Estoque_adicionar:before{content:'\004a';}
+.iconTituloInteracoes-Estoque_excluir:before{content:'\004b';}
+.iconTituloInteracoes-Estoque_editar:before{content:'\004c';}
 
 .icon-Produto:before{content:'\004d';}
 .icon-Produto_adicionar:before{content:'\004e';}
 .icon-Produto_excluir:before{content:'\004f';}
 .icon-Produto_editar:before{content:'\0050';}
-.iconTituloInteracoes-Produto_adicionar:before{content:'\0042';}
-.iconTituloInteracoes-Produto_excluir:before{content:'\0043';}
-.iconTituloInteracoes-Produto_editar:before{content:'\0044';}
+.iconTitulo-Produto:before{content:'\004d';}
+.iconTituloInteracoes-Produto_adicionar:before{content:'\004e';}
+.iconTituloInteracoes-Produto_excluir:before{content:'\004f';}
+.iconTituloInteracoes-Produto_editar:before{content:'\0050';}
 
 .icon-Receitas:before{content:'\0051';}
 .icon-Receitas_adicionar:before{content:'\0052';}
 .icon-Receitas_excluir:before{content:'\0053';}
 .icon-Receitas_editar:before{content:'\0054';}
-.iconTituloInteracoes-Receitas_adicionar:before{content:'\0042';}
-.iconTituloInteracoes-Receitas_excluir:before{content:'\0043';}
-.iconTituloInteracoes-Receitas_editar:before{content:'\0044';}
+.iconTitulo-Receitas:before{content:'\0051';}
+.iconTituloInteracoes-Receitas_adicionar:before{content:'\0052';}
+.iconTituloInteracoes-Receitas_excluir:before{content:'\0053';}
+.iconTituloInteracoes-Receitas_editar:before{content:'\0054';}
 
 .icon-Relatorios:before{content:'\0055';}
 .icon-Relatorios_adicionar:before{content:'\0056';}
 .icon-Relatorios_excluir:before{content:'\0057';}
 .icon-Relatorios_editar:before{content:'\0058';}
+.iconTitulo-Relatorios:before{content:'\0055';}
+.iconTituloInteracoes-Relatorios_adicionar:before{content:'\0056'}
+.iconTituloInteracoes-Relatorios_excluir:before{content:'\0057';}
+.iconTituloInteracoes-Relatorios_editar:before{content:'\0058';}
+
 .icon-sair:before{content:'\0059';}

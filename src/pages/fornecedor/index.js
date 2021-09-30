@@ -5,12 +5,18 @@ import {
     useRouteMatch,
 } from 'react-router-dom'
 import Cabecalho from "../../components/Cabecalho";
+import PaginaInicial from './PaginaInicial';
 import CadastroFornecedor from './CadastroFornecedor';
 import EditarFornecedor from './EditarFornecedor';
 import ExcluirFornecedor from './ExcluirFornecedor';
 export const Fornecedor = () => {
     const { path } = useRouteMatch();
     const links = [
+        {
+            to: `${path}/paginaInicial`,
+            active: window.location.pathname === `${path}/paginaInicial`,
+            iconName: '_paginaInicial'
+        },
         {
             to: `${path}/cadastro`,
             active: window.location.pathname === `${path}/cadastro`,
@@ -36,7 +42,8 @@ export const Fornecedor = () => {
             />
 
             <Switch>
-                <Route exact path={path}>
+                <Route exact path={`${path}/paginaInicial`}>
+                    <PaginaInicial/>
                 </Route>
                 <Route path={`${path}/cadastro`}>
                     <CadastroFornecedor />
@@ -48,6 +55,8 @@ export const Fornecedor = () => {
                     <ExcluirFornecedor />
                 </Route>
             </Switch>
+
+            
         </div>
     )
 }

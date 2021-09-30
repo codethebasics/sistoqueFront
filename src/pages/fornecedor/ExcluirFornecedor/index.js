@@ -68,6 +68,7 @@ const ExcluirFornecedor = () => {
           type={inputAtual.type}
           required={inputAtual.required}
           value={inputAtual.value}
+          className={inputAtual.classe}
           disabled={inputAtual.disabled}
           onChange={(e) => mudarValueInput(e, inputAtual)}
         />
@@ -85,6 +86,7 @@ const ExcluirFornecedor = () => {
             id={BuscarFornecedorAtual.id}
             required={BuscarFornecedorAtual.required}
             value={BuscarFornecedorAtual.value}
+            className={BuscarFornecedorAtual.classe}
             disabled={BuscarFornecedorAtual.disabled}
   
           />

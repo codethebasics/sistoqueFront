@@ -27,6 +27,19 @@
   text-decoration: none;
   font-family: var(--familiaFonte);
   font-size: var(--tamanhoFonteTexto);
+  
+}
+
+a:link, a:before, a:visited{
+  color: var(--corPreta);
+}
+
+a:hover, a:active{
+  color: var(--corVerde);
+}
+
+.icon-sair:hover, .icon-sair:active{
+  color: var(--corVinho);
 }
 
 main {
@@ -125,7 +138,24 @@ label{
   padding: 5px;
 }
 
-input, input:focus {
+.input_tamanho1{
+  width: 760px;
+}
+
+.input_tamanho2{
+  width: 370px;
+}
+
+.input_tamanho3{
+  width: 240px;
+}
+
+.input_tamanho4{
+  width: 174px;
+}
+
+
+input, input:focus, select, select:focus{
   background: var(--corBgInput);
   border: 2px solid var(--corBorderInput);
   border-radius: 10px;
@@ -134,11 +164,10 @@ input, input:focus {
 }
 
 input:focus{
-  border: 2px solid var (--corPreta);
+  border: 2px solid var(--corPreta);
 }
 
 input:placeholder-shown{
-  font-size: var(--tamanhoFontePlaceholder);
   color: var(--corFontPlaceholder);
 }
 
@@ -153,7 +182,7 @@ input:placeholder-shown{
 button{
   width: 185px;
   height: 36px;
-  margin: 0 10px;
+  margin: 0 0 0 15px;
   border-radius: 10px;
   font-family: var (--familiaFonte);
   font-weight: bold;

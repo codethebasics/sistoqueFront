@@ -92,6 +92,7 @@ const ConsultarFornecedor = () => {
           type={inputAtual.type}
           required={inputAtual.required}
           value={inputAtual.value}
+          className={inputAtual.classe}
           disabled={inputAtual.disabled}
           onChange={(e) => mudarValueInput(e, inputAtual)}
         />
@@ -121,6 +122,7 @@ const ConsultarFornecedor = () => {
           required={inputEnderecoAtual.required}
           value={inputEnderecoAtual.value}
           disabled={inputEnderecoAtual.disabled}
+          className={inputEnderecoAtual.classe}
           onChange={(e) => mudarValueInputEndereco(e, inputEnderecoAtual)}
 
         />
@@ -138,6 +140,7 @@ const ConsultarFornecedor = () => {
             id={BuscarFornecedorAtual.id}
             required={BuscarFornecedorAtual.required}
             value={BuscarFornecedorAtual.value}
+            className={BuscarFornecedorAtual.classe}
             disabled={BuscarFornecedorAtual.disabled}
   
           />
@@ -159,7 +162,6 @@ const ConsultarFornecedor = () => {
 
   return (
     <div className="Formulario">
-      <h2>Editar Fornecedor</h2>
       <fieldset>
         {/*renderizarCampos()*/}
         {renderizarCamposBuscarFornecedorReact()}

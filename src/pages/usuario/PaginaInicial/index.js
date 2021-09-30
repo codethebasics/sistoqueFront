@@ -106,7 +106,7 @@ const ConsultarUsuario = () => {
         {renderizarCamposReact()}
       </fieldset>
       <h3>
-        <span>Endereço</span>
+        <span>Login e Senha</span>
       </h3>
       <fieldset>
         {/* {renderizarCamposEnderecoReact()} */}

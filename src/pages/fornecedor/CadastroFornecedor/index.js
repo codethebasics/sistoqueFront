@@ -110,6 +110,7 @@ const CadastroFornecedor = () => {
           required={inputAtual.required}
           value={inputAtual.value}
           disabled={inputAtual.disabled}
+          className={inputAtual.classe}
           onChange={(e) => mudarValueInput(e, inputAtual)}
         />
       </div>
@@ -137,9 +138,10 @@ const CadastroFornecedor = () => {
           type={inputEnderecoAtual.type}
           required={inputEnderecoAtual.required}
           value={inputEnderecoAtual.value}
+          className={inputEnderecoAtual.classe}
           disabled={inputEnderecoAtual.disabled}
+          width={inputEnderecoAtual.tamanho}
           onChange={(e) => mudarValueInputEndereco(e, inputEnderecoAtual)}
-
         />
       </div>
     ));
@@ -158,7 +160,7 @@ const CadastroFornecedor = () => {
 
   return (
     <div className="Formulario">
-      <h2>Cadastro novo Fornecedor</h2>
+      <h2>Cadastrar novo Fornecedor</h2>
       <fieldset>
         {/*renderizarCampos()*/}
         {renderizarCamposReact()}

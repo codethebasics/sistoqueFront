@@ -8,14 +8,13 @@ const MenuPrincipal = () => {
           <ul>
             <li>
             <Link to="/sistema/usuario/PaginaInicial">
-            <span className="icon-Usuario">Usuário</span>
+            <span className="icon-Usuário">Usuário</span>
             </Link>
             </li>
             <li>
             <Link to="/sistema/produto/PaginaInicial">
             <span className="icon-Produto">Produto</span>
             </Link>
-              
             </li>
             <li>
             <Link to="/sistema/estoque/PaginaInicial">
@@ -23,7 +22,7 @@ const MenuPrincipal = () => {
             </Link>
             </li>
             <li>
-            <Link to="/sistema/receitas/PaginaInicial">
+            <Link to="/sistema/receita/PaginaInicial">
             <span className="icon-Receitas">Receita</span>
             </Link>
             </li>
@@ -33,7 +32,7 @@ const MenuPrincipal = () => {
               </Link>
             </li>
             <li>
-            <Link to="/sistema/relatorios/PaginaInicial">
+            <Link to="/sistema/relatorio/PaginaInicial">
             <span className="icon-Relatorios">Relatório</span>
             </Link>
             </li>

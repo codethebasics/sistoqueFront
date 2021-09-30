@@ -109,6 +109,7 @@ const EditarFornecedor = () => {
           type={inputAtual.type}
           required={inputAtual.required}
           value={inputAtual.value}
+          className={inputAtual.classe}
           disabled={inputAtual.disabled}
           onChange={(e) => mudarValueInput(e, inputAtual)}
         />
@@ -138,6 +139,7 @@ const EditarFornecedor = () => {
           required={inputEnderecoAtual.required}
           value={inputEnderecoAtual.value}
           disabled={inputEnderecoAtual.disabled}
+          className={inputEnderecoAtual.classe}
           onChange={(e) => mudarValueInputEndereco(e, inputEnderecoAtual)}
 
         />
@@ -155,6 +157,7 @@ const EditarFornecedor = () => {
             id={BuscarFornecedorAtual.id}
             required={BuscarFornecedorAtual.required}
             value={BuscarFornecedorAtual.value}
+            className={BuscarFornecedorAtual.classe}
             disabled={BuscarFornecedorAtual.disabled}
   
           />

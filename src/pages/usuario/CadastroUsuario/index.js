@@ -158,7 +158,7 @@ const CadastroUsuario = () => {
 
   return (
     <div className="Formulario">
-      <h2>Cadastro novo Usuario</h2>
+      <h2>Cadastrar novo Usuario</h2>
       <fieldset>
         {/*renderizarCampos()*/}
         {renderizarCamposReact()}

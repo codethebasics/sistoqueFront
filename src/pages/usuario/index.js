@@ -5,13 +5,18 @@ import {
     useRouteMatch,
 } from 'react-router-dom'
 import Cabecalho from "../../components/Cabecalho";
-import ConsultarUsuario from './PaginaInicial';
+import PaginaInicial from './PaginaInicial';
 import CadastroUsuario from './CadastroUsuario';
 import EditarUsuario from './EditarUsuario';
 import ExcluirUsuario from './ExcluirUsuario';
 export const Usuario = () => {
     const { path } = useRouteMatch();
     const links = [
+        {
+            to: `${path}/paginaInicial`,
+            active: window.location.pathname === `${path}/paginaInicial`,
+            iconName: '_PaginaInicial'
+        },
         {
             to: `${path}/cadastro`,
             active: window.location.pathname === `${path}/usuario`,
@@ -34,13 +39,13 @@ export const Usuario = () => {
     return (
         <div>
             <Cabecalho 
-                nomeCabecalho="Usuario"
+                nomeCabecalho="Usuário"
                 links={links}
             />
 
             <Switch>
-                <Route exact path={path}>
-                    <ConsultarUsuario />
+                <Route exact path={`${path}/paginaInicial`}>
+                    <PaginaInicial />
                 </Route>
                 <Route path={`${path}/cadastro`}>
                     <CadastroUsuario />

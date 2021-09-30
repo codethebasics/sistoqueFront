@@ -20,7 +20,7 @@ const Cabecalho = ({
               <span 
               className={"iconTituloInteracoes-" + nomeCabecalho + link.iconName}
               style={{
-                color: link.active ? 'var(--corVerde)' : 'var(--corLaranja)'
+                color: link.active ? 'var(--corVerde)' : 'var(--corPreta)'
               }}
               ></span>
             </Link>
