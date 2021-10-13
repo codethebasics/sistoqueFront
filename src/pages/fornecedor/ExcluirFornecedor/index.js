@@ -12,41 +12,20 @@ const ExcluirFornecedor = () => {
   {
     nome:"Excluir",
     classe:"botaoExcluir",
+    onClick: (e) => excluirCamposReact(e)
   },
     {
       nome: "Limpar",
       classe: "botaoLimpar",
-      onClick: () => limparCamposReact(),
+      onClick: (e) => limparCamposReact(e),
     },
   ];
 
-  const renderizarCampos = () =>
-    inputs.map((inputAtual) => (
-      <div className="itemFormulario">
-        <label for={inputAtual.name}>{inputAtual.label}:</label>
-        <br />
-        <input
-          placeholder={inputAtual.placeholder}
-          name={inputAtual.name}
-          id={inputAtual.id}
-          type={inputAtual.type}
-          required={inputAtual.required}
-        />
-      </div>
-    ));
+const [inputsReact, setInputReact] = useState(inputs);
+const [buscarFornecedorReact, setInputbuscarFornecedorReact] = useState(buscarFornecedor);
 
-  const limparCampos = (e) => {
-    //e.preventDefault();
 
-    inputs.map((input) => {
-      document.getElementById(input.id).value = "";
-    });
-
-  };
-
-  const [inputsReact, setInputReact] = useState(inputs);
-
-  const mudarValueInput = (e, input) => {
+const mudarValueInput = (e, input) => {
     const htmlInputs = e.target;
     input.value = htmlInputs.value;
     const inputsAtualizados = inputsReact.map((inputsReactAtual) => {
@@ -57,8 +36,8 @@ const ExcluirFornecedor = () => {
   };
 
   const renderizarCamposReact = () =>
-    inputs.map((inputAtual) => (
-      <div className="itemFormulario">
+    inputsReact.map((inputAtual) => (
+      <div className="itemFormulario" key={inputAtual.id}>
         <label for={inputAtual.name}>{inputAtual.label}:</label>
         <br />
         <input
@@ -75,8 +54,8 @@ const ExcluirFornecedor = () => {
       </div>
     ));
 
-    const renderizarCamposBuscarFornecedorReact = () =>
-      buscarFornecedor.map((BuscarFornecedorAtual) => (
+const renderizarCamposBuscarFornecedorReact = () =>
+buscarFornecedorReact.map((BuscarFornecedorAtual) => (
         <div className="itemFormulario">
           <label for={BuscarFornecedorAtual.name}>{BuscarFornecedorAtual.label}:</label>
           <br />
@@ -88,7 +67,7 @@ const ExcluirFornecedor = () => {
             value={BuscarFornecedorAtual.value}
             className={BuscarFornecedorAtual.classe}
             disabled={BuscarFornecedorAtual.disabled}
-  
+            style={{ border: !BuscarFornecedorAtual.valid ? '1px solid red' : '', backgroundColor:!BuscarFornecedorAtual.valid ? '#FFC0CB' : ''}}
           />
         </div>
       ));
@@ -97,13 +76,19 @@ const ExcluirFornecedor = () => {
     const limparCamposReact = (e) => {
       e.preventDefault();
       const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
+      const camposEnderecoAtualizados = buscarFornecedorReact.map((input) => ({...input, value : ''}))
       setInputReact(camposAtualizados)
+      setInputbuscarFornecedorReact(camposEnderecoAtualizados)
+
     }
 
-    const confirmarCamposReact = (e) => {
+    const excluirCamposReact = (e) => {
       e.preventDefault();
-      const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
-      setInputReact(validarCampos)
+      const excluirCampos = inputsReact.map((input) => ({...input, valid: input.value !== ''}))
+      const camposEnderecoAtualizados = buscarFornecedorReact.map((input) => ({...input, value : ''}))
+      setInputReact(excluirCampos)
+      setInputbuscarFornecedorReact(camposEnderecoAtualizados)
+
     }
 
   return (

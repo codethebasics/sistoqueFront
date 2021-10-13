@@ -19,17 +19,17 @@ export const Usuario = () => {
         },
         {
             to: `${path}/cadastro`,
-            active: window.location.pathname === `${path}/usuario`,
+            active: window.location.pathname === `${path}/cadastro`,
             iconName: '_adicionar'
         },
         {
             to: `${path}/editar`,
-            active: window.location.pathname === `${path}/usuario`,
+            active: window.location.pathname === `${path}/editar`,
             iconName: '_editar'
         },
         {
             to: `${path}/excluir`,
-            active: window.location.pathname === `${path}/usuario`,
+            active: window.location.pathname === `${path}/excluir`,
             iconName: '_excluir'
 
         },

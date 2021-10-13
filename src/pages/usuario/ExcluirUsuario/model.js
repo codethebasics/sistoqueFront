@@ -7,7 +7,7 @@ export const inputs = [
       value: "",
       type: "text",
       required: true,
-      tamanho: 56,
+      classe: "input_tamanho5",
       valid : true,
       disabled : false,
     },
@@ -17,12 +17,31 @@ export const inputs = [
       label: "Cargo",
       placeholder: "Digite o Cargo",
       value: "",
-      type: "text",
+      type: "select",
       required: true,
-      tamanho: 56,
+      classe: "input_tamanho3",
       valid : true,
       disabled : false,
+      options: [
+        {
+          value: "-",
+          text: "Selecione um cargo"
+        },
+        {
+          value: "funcionario",
+          text: "Funcionário"
+        },
+        {
+          value: "cozinheiro",
+          text: "Cozinheiro"
+        },
+        {
+          value: "gestor",
+          text: "Gestor"
+        },
+      ]
     },
+
 ];
 
   export const buscarUsuario = [
@@ -33,7 +52,7 @@ export const inputs = [
       placeholder: "Selecione um Usuario",
       value: "",
       required: true,
-      tamanho: 120,
+      classe: "input_tamanho1",
       valid : true,
       disabled : false,
 

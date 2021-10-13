@@ -7,7 +7,7 @@ export const inputs = [
       value: "",
       type: "text",
       required: true,
-      tamanho: 56,
+      classe: "input_tamanho5",
       valid : true,
       disabled : false,
     },
@@ -17,11 +17,29 @@ export const inputs = [
       label: "Cargo",
       placeholder: "Digite o Cargo",
       value: "",
-      type: "text",
+      type: "select",
       required: true,
-      tamanho: 56,
+      classe: "input_tamanho3",
       valid : true,
       disabled : false,
+      options: [
+        {
+          value: "-",
+          text: "Selecione um cargo"
+        },
+        {
+          value: "funcionario",
+          text: "Funcionário"
+        },
+        {
+          value: "cozinheiro",
+          text: "Cozinheiro"
+        },
+        {
+          value: "gestor",
+          text: "Gestor"
+        },
+      ]
     },
     {
       name: "dataNascimento",
@@ -29,9 +47,9 @@ export const inputs = [
       label: "Data Nascimento",
       placeholder: "Data Nascimento",
       value: "",
-      type: "text",
+      type: "date",
       required: true,
-      tamanho: 34,
+      classe: "input_tamanho3",
       valid : true,
       disabled : false,
     },
@@ -43,10 +61,10 @@ export const inputs = [
       value: "",
       type: "text",
       required: true,
-      tamanho: 34,
+      classe: "input_tamanho3",
       valid : true,
       disabled : false,
-    },
+    },/*
     {
       name: "RG",
       id: "RG",
@@ -55,10 +73,10 @@ export const inputs = [
       value: "",
       type: "text",
       required: true,
-      tamanho: 34,
+      classe: "input_tamanho3",
       valid : true,
       disabled : false,
-    },
+    },*/
     {
       name: "celular",
       id: "celular",
@@ -67,40 +85,10 @@ export const inputs = [
       value: "",
       type: "tel",
       required: true,
-      tamanho: 34,
+      classe: "input_tamanho3",
       valid : true,
       disabled : false,    
     },];
-
-export const inputsLogin = [
-    {
-      name: "login",
-      id: "login",
-      label: "Login",
-      placeholder: "Login",
-      value: "",
-      type: "text",
-      required: true,
-      tamanho: 56,
-      valid : true,
-      disabled : false,
-
-    },
-    {
-      name: "senha",
-      id: "senha",
-      label: "Senha",
-      placeholder: "Senha",
-      value: "",
-      type: "password",
-      required: true,
-      tamanho: 56,
-      valid : true,
-      disabled : false,
-
-    },
-    
-  ];
 
 
   export const buscarUsuario = [
@@ -114,6 +102,7 @@ export const inputsLogin = [
       tamanho: 120,
       valid : true,
       disabled : false,
+      classe: "input_tamanho1",
 
     },
   ];

@@ -1,28 +1,12 @@
-import Botoes from "../../../components/Botoes";
-import { inputs, buscarUsuario } from "./model";
+import { inputs, buscarProduto } from "./model";
+import Botoes from '../../../components/Botoes';
 import { useState } from "react";
 
-const ExcluirUsuario = () => {
-  const botoes = [
-    /*{
-      nome: "Confirmar",
-      classe: "botaoCadastrar",
-      onClick: () => confirmarCamposReact(),
-    } */
-  {
-    nome:"Excluir",
-    classe:"botaoExcluir",
-  },
-    {
-      nome: "Limpar",
-      classe: "botaoLimpar",
-      onClick: () => limparCamposReact(),
-    },
-  ];
+const ConsultarProduto = () => {
 
-  const [inputsReact, setInputReact] = useState(inputs);
+const [inputsReact, setInputReact] = useState(inputs);
 
-  const mudarValueInput = (e, input) => {
+const mudarValueInput = (e, input) => {
     const htmlInputs = e.target;
     input.value = htmlInputs.value;
     const inputsAtualizados = inputsReact.map((inputsReactAtual) => {
@@ -32,7 +16,7 @@ const ExcluirUsuario = () => {
     setInputReact(inputsAtualizados)
   };
 
-  const renderizarCamposReact = () =>
+const renderizarCamposReact = () =>
     inputs.map((inputAtual) => (
       <div className="itemFormulario">
         <label for={inputAtual.name}>{inputAtual.label}:</label>
@@ -72,52 +56,34 @@ const ExcluirUsuario = () => {
       </div>
     ));
 
-    const renderizarCamposBuscarUsuarioReact = () =>
-      buscarUsuario.map((BuscarUsuarioAtual) => (
+const renderizarCamposBuscarProdutoReact = () =>
+      buscarProduto.map((BuscarProdutoAtual) => (
         <div className="itemFormulario">
-          <label for={BuscarUsuarioAtual.name}>{BuscarUsuarioAtual.label}:</label>
+          <label for={BuscarProdutoAtual.name}>{BuscarProdutoAtual.label}:</label>
           <br />
           <select
-            placeholder={BuscarUsuarioAtual.placeholder}
-            name={BuscarUsuarioAtual.name}
-            id={BuscarUsuarioAtual.id}
-            required={BuscarUsuarioAtual.required}
-            value={BuscarUsuarioAtual.value}
-            disabled={BuscarUsuarioAtual.disabled}
-            className={BuscarUsuarioAtual.classe}
-
+            placeholder={BuscarProdutoAtual.placeholder}
+            name={BuscarProdutoAtual.name}
+            id={BuscarProdutoAtual.id}
+            className={BuscarProdutoAtual.classe}
+            required={BuscarProdutoAtual.required}
+            value={BuscarProdutoAtual.value}
+            disabled={BuscarProdutoAtual.disabled}
   
           />
         </div>
       ));
   
-
-    const limparCamposReact = (e) => {
-      e.preventDefault();
-      const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
-      setInputReact(camposAtualizados)
-    }
-
-    const confirmarCamposReact = (e) => {
-      e.preventDefault();
-      const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
-      setInputReact(validarCampos)
-    }
-
   return (
     <div className="Formulario">
-      <h2>Excluir Usuario</h2>
       <fieldset>
-        {renderizarCamposBuscarUsuarioReact()}
-        {/*renderizarCamposEndereco()*/}
+        {renderizarCamposBuscarProdutoReact()}
       </fieldset>
       <fieldset>
-        {/*renderizarCampos()*/}
         {renderizarCamposReact()}
       </fieldset>
-      <Botoes botoes={botoes} />
     </div>
   );
 };
 
-export default ExcluirUsuario;
+export default ConsultarProduto;

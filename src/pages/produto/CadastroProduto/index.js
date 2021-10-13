@@ -1,18 +1,19 @@
 import Botoes from "../../../components/Botoes";
-import { inputs, buscarUsuario } from "./model";
+import { inputs, buscarProduto } from "./model";
 import { useState } from "react";
 
-const ExcluirUsuario = () => {
+const CadastroProduto = () => {
   const botoes = [
-    /*{
-      nome: "Confirmar",
+    {
+      nome: "Cadastrar",
       classe: "botaoCadastrar",
       onClick: () => confirmarCamposReact(),
-    } */
+    } /*
   {
     nome:"Excluir",
     classe:"botaoExcluir",
-  },
+    onClick: () => excluirCampos(),
+  },*/,
     {
       nome: "Limpar",
       classe: "botaoLimpar",
@@ -72,26 +73,6 @@ const ExcluirUsuario = () => {
       </div>
     ));
 
-    const renderizarCamposBuscarUsuarioReact = () =>
-      buscarUsuario.map((BuscarUsuarioAtual) => (
-        <div className="itemFormulario">
-          <label for={BuscarUsuarioAtual.name}>{BuscarUsuarioAtual.label}:</label>
-          <br />
-          <select
-            placeholder={BuscarUsuarioAtual.placeholder}
-            name={BuscarUsuarioAtual.name}
-            id={BuscarUsuarioAtual.id}
-            required={BuscarUsuarioAtual.required}
-            value={BuscarUsuarioAtual.value}
-            disabled={BuscarUsuarioAtual.disabled}
-            className={BuscarUsuarioAtual.classe}
-
-  
-          />
-        </div>
-      ));
-  
-
     const limparCamposReact = (e) => {
       e.preventDefault();
       const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
@@ -104,12 +85,30 @@ const ExcluirUsuario = () => {
       setInputReact(validarCampos)
     }
 
+    const renderizarCamposBuscarProdutoReact = () =>
+      buscarProduto.map((BuscarProdutoAtual) => (
+        <div className="itemFormulario">
+          <label for={BuscarProdutoAtual.name}>{BuscarProdutoAtual.label}:</label>
+          <br />
+          <select
+            placeholder={BuscarProdutoAtual.placeholder}
+            name={BuscarProdutoAtual.name}
+            id={BuscarProdutoAtual.id}
+            required={BuscarProdutoAtual.required}
+            value={BuscarProdutoAtual.value}
+            className={BuscarProdutoAtual.classe}
+            disabled={BuscarProdutoAtual.disabled}
+  
+          />
+        </div>
+      ));
+
   return (
     <div className="Formulario">
-      <h2>Excluir Usuario</h2>
+      <h2>Editar Produto</h2>
       <fieldset>
-        {renderizarCamposBuscarUsuarioReact()}
-        {/*renderizarCamposEndereco()*/}
+        {/*renderizarCampos()*/}
+        {renderizarCamposBuscarProdutoReact()}
       </fieldset>
       <fieldset>
         {/*renderizarCampos()*/}
@@ -120,4 +119,4 @@ const ExcluirUsuario = () => {
   );
 };
 
-export default ExcluirUsuario;
+export default CadastroProduto;

@@ -7,7 +7,7 @@ const EditarFornecedor = () => {
     {
       nome: "Confirmar",
       classe: "botaoCadastrar",
-      onClick: () => confirmarCamposReact(),
+      onClick: (e) => confirmarCamposReact(e),
     } /*
   {
     nome:"Excluir",
@@ -17,75 +17,12 @@ const EditarFornecedor = () => {
     {
       nome: "Limpar",
       classe: "botaoLimpar",
-      onClick: () => limparCamposReact(),
+      onClick: (e) => limparCamposReact(e),
     },
   ];
 
-  const renderizarCampos = () =>
-    inputs.map((inputAtual) => (
-      <div className="itemFormulario">
-        <label for={inputAtual.name}>{inputAtual.label}:</label>
-        <br />
-        <input
-          placeholder={inputAtual.placeholder}
-          name={inputAtual.name}
-          id={inputAtual.id}
-          type={inputAtual.type}
-          required={inputAtual.required}
-        />
-      </div>
-    ));
-
-  const renderizarCamposEndereco = () =>
-    inputsEndereco.map((inputEnderecoAtual) => (
-      <div className="itemFormulario">
-        <label for={inputEnderecoAtual.name}>{inputEnderecoAtual.label}:</label>
-        <br />
-        <input
-          placeholder={inputEnderecoAtual.placeholder}
-          name={inputEnderecoAtual.name}
-          id={inputEnderecoAtual.id}
-          type={inputEnderecoAtual.type}
-          required={inputEnderecoAtual.required}
-        />
-      </div>
-    ));
-
-  const limparCampos = (e) => {
-    //e.preventDefault();
-
-    inputs.map((input) => {
-      document.getElementById(input.id).value = "";
-    });
-
-    inputsEndereco.map((input) => {
-      document.getElementById(input.id).value = "";
-    });
-  };
-
-  const confirmarCampos = (e) => {
-    //e.preventDefault();
-
-    inputs.map((input) => {
-      const htmlInputs = document.getElementById(input.id);
-      if (htmlInputs.value != "") {
-        alert("Item Cadastrado com sucesso");
-      } else {
-        htmlInputs.style = "border: 1px solid red";
-      }
-    });
-
-    inputsEndereco.map((input) => {
-      const htmlInputsEndereco = document.getElementById(input.id);
-      if (htmlInputsEndereco.value != "") {
-        alert("Item Cadastrado com sucesso");
-      } else {
-        htmlInputsEndereco.style = "border: 1px solid red";
-      }
-    });
-  };
-
   const [inputsReact, setInputReact] = useState(inputs);
+  const [inputsEnderecoReact, setInputEnderecoReact] = useState(inputsEndereco);
 
   const mudarValueInput = (e, input) => {
     const htmlInputs = e.target;
@@ -94,11 +31,12 @@ const EditarFornecedor = () => {
       if (inputsReactAtual.id == input.id) return input;
       else return inputsReactAtual;
     });
+    console.log("chamou")
     setInputReact(inputsAtualizados)
   };
 
   const renderizarCamposReact = () =>
-    inputs.map((inputAtual) => (
+    inputsReact.map((inputAtual) => (
       <div className="itemFormulario">
         <label for={inputAtual.name}>{inputAtual.label}:</label>
         <br />
@@ -123,12 +61,33 @@ const EditarFornecedor = () => {
         if (inputsReactAtual.id == input.id) return input;
         else return inputsReactAtual;
       });
-      setInputReact(inputsAtualizados)
+      setInputEnderecoReact(inputsAtualizados)
     };
+
+const buscarCep = async (cep) => {
+
+      if(cep == '' || cep.length < 8 || cep.length > 9) {
+        return 
+      }
+      try {
+        const retornoViaCep = 
+        await fetch("https://viacep.com.br/ws/" + cep + "/json/")
+        const jsonViaCep = await retornoViaCep.json()
+        const enderecoCompleto = inputsEnderecoReact.map((input) => (
+          {
+            ...input,
+            value: jsonViaCep[input.name] || ""
+          }
+        ))
+        setInputEnderecoReact(enderecoCompleto);
+      } catch (e) {
+        console.log(e);
+      }
+    }
 
   const renderizarCamposEnderecoReact = () =>
     inputsEndereco.map((inputEnderecoAtual) => (
-      <div className="itemFormulario">
+      <div className="itemFormulario" key={inputEnderecoAtual.id}>
         <label for={inputEnderecoAtual.name}>{inputEnderecoAtual.label}:</label>
         <br />
         <input
@@ -140,7 +99,13 @@ const EditarFornecedor = () => {
           value={inputEnderecoAtual.value}
           disabled={inputEnderecoAtual.disabled}
           className={inputEnderecoAtual.classe}
-          onChange={(e) => mudarValueInputEndereco(e, inputEnderecoAtual)}
+          onChange={(e) => {
+            mudarValueInputEndereco(e, inputEnderecoAtual)
+            if(inputEnderecoAtual.name == 'cep') {
+              buscarCep(inputEnderecoAtual.value)
+            }
+          }}
+          style={{ border: !inputEnderecoAtual.valid ? '1px solid red' : '', backgroundColor:!inputEnderecoAtual.valid ? '#FFC0CB' : ''}}
 
         />
       </div>
@@ -168,13 +133,19 @@ const EditarFornecedor = () => {
     const limparCamposReact = (e) => {
       e.preventDefault();
       const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
+      const camposEnderecoAtualizados = inputsEnderecoReact.map((input) => ({...input, value : ''}))
       setInputReact(camposAtualizados)
+      setInputEnderecoReact(camposEnderecoAtualizados)
+
     }
 
     const confirmarCamposReact = (e) => {
       e.preventDefault();
       const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
       setInputReact(validarCampos)
+      const validarEnderecoCampos = inputsEnderecoReact.map((input) => ({...input, valid: input.value !== ''}))
+      setInputEnderecoReact(validarEnderecoCampos)
+
     }
 
   return (

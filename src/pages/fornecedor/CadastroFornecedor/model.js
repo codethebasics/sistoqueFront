@@ -113,7 +113,7 @@ export const inputs = [
 
 export const inputsEndereco = [
     {
-      name: "CEP",
+      name: "cep",
       id: "CEP",
       label: "CEP",
       placeholder: "CEP",
@@ -126,7 +126,7 @@ export const inputsEndereco = [
 
     },
     {
-      name: "nomeLogradouro",
+      name: "logradouro",
       id: "nomeLogradouro",
       label: "Nome da Rua / Avenida",
       placeholder: "Nome da Rua / Avenida",
@@ -178,7 +178,7 @@ export const inputsEndereco = [
 
     },
     {
-      name: "cidade",
+      name: "localidade",
       id: "cidade",
       label: "Cidade",
       placeholder: "Cidade",
@@ -191,7 +191,7 @@ export const inputsEndereco = [
 
     },
     {
-      name: "estado",
+      name: "uf",
       id: "estado",
       label: "Estado",
       placeholder: "Estado",

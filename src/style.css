@@ -142,6 +142,10 @@ label{
   width: 760px;
 }
 
+.input_tamanho5{
+  width: 500px;
+}
+
 .input_tamanho2{
   width: 370px;
 }
@@ -202,4 +206,38 @@ button{
 
 .botaoLimpar{
   background-color: var(--corLaranja);
+}
+
+/* Login */
+
+.paginaLogin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logotipoLogin{
+margin: 20px;
+display: flex;
+justify-content: center;
+}
+.areaLogin{
+  width: 320px;
+  border: 1px solid black;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.esqueceuSenha{
+  text-align: right;
+  margin: 0 0 20px 0;
+}
+
+a, input[type=submit]{
+  cursor: pointer;
 }

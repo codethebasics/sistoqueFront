@@ -42,7 +42,7 @@ const MenuPrincipal = () => {
 
       <ul className="menuSair">
         <li>
-          <Link to="/sistema/login">
+          <Link to="/login">
           <span className="icon-sair">Sair</span>
           </Link>
         </li>
