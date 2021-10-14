@@ -126,9 +126,9 @@ const CadastroFornecedor = () => {
 
     const confirmarCamposReact = (e) => {
       e.preventDefault();
-      const validarCampos = inputsReact.map((input) => ({...input, valid: input.value !== ''}))
+      const validarCampos = inputsReact.map((input) => ({...input, valid: input.required ?  input.value !== '' : true }))
       setInputReact(validarCampos)
-      const validarEnderecoCampos = inputsEnderecoReact.map((input) => ({...input, valid: input.value !== ''}))
+      const validarEnderecoCampos = inputsEnderecoReact.map((input) => ({...input, valid: input.required ? input.value !== '' : true}))
       setInputEnderecoReact(validarEnderecoCampos)
     }
 

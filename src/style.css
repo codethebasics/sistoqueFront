@@ -159,12 +159,16 @@ label{
 }
 
 
-input, input:focus, select, select:focus{
+input, input:focus, select, select:focus, textarea{
   background: var(--corBgInput);
   border: 2px solid var(--corBorderInput);
   border-radius: 10px;
   margin: 5px 0;
   padding: 5px;
+}
+
+textarea{
+  height: 100px;
 }
 
 input:focus{
@@ -240,4 +244,13 @@ justify-content: center;
 
 a, input[type=submit]{
   cursor: pointer;
+}
+
+.swal2-popup{
+  border-radius: 30px;
+  border: 1px solid var(--corPreta);
+}
+
+.swal2-confirm{
+  background-color: var(--corVinho)!important;
 }

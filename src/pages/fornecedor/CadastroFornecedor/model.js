@@ -158,7 +158,7 @@ export const inputsEndereco = [
       placeholder: "Complemento",
       value: "",
       type: "text",
-      required: true,
+      required: false,
       classe: "input_tamanho4",
       valid : true,
       disabled : false,

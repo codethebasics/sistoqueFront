@@ -17,12 +17,12 @@ const mudarValueInput = (e, input) => {
   };
 
 const renderizarCamposReact = () =>
-    inputs.map((inputAtual) => (
+  inputsReact.map((inputAtual) => (
       <div className="itemFormulario">
         <label for={inputAtual.name}>{inputAtual.label}:</label>
         <br />
         {
-          inputAtual.type != 'select' ? (
+          inputAtual.type != 'select' && inputAtual.type != "textarea" ? (
             <input
               placeholder={inputAtual.placeholder}
               name={inputAtual.name}
@@ -37,6 +37,22 @@ const renderizarCamposReact = () =>
               }}
               style={{ border: !inputAtual.valid ? '1px solid red' : '', backgroundColor:!inputAtual.valid ? '#FFC0CB' : ''}}
             />
+          ) : 
+          inputAtual.type == 'textarea' ? (
+            <textarea 
+              placeholder={inputAtual.placeholder}
+              name={inputAtual.name}
+              id={inputAtual.id}
+              type={inputAtual.type}
+              required={inputAtual.required}
+              value={inputAtual.value}
+              disabled={inputAtual.disabled}
+              className={inputAtual.classe}
+              onChange={(e) => {
+                mudarValueInput(e, inputAtual)
+              }}
+              style={{ border: !inputAtual.valid ? '1px solid red' : '', backgroundColor:!inputAtual.valid ? '#FFC0CB' : ''}}
+            ></textarea>
           ) : (
             <select
               placeholder={inputAtual.placeholder}
@@ -49,15 +65,15 @@ const renderizarCamposReact = () =>
               onChange={(e) => {mudarValueInput(e, inputAtual)}}
               style={{ border: !inputAtual.valid ? '1px solid red' : '', backgroundColor:!inputAtual.valid ? '#FFC0CB' : ''}}
             > {
-              inputAtual.options.map((option) => (<option value={option.value}> {option.text} </option>))
+              (inputAtual.options || []).map((option) => (<option value={option.value}> {option.text} </option>))
             }</select>
           )
         }
       </div>
     ));
-
+console.log({ buscarProduto })
 const renderizarCamposBuscarProdutoReact = () =>
-      buscarProduto.map((BuscarProdutoAtual) => (
+      (buscarProduto || []).map((BuscarProdutoAtual) => (
         <div className="itemFormulario">
           <label for={BuscarProdutoAtual.name}>{BuscarProdutoAtual.label}:</label>
           <br />
@@ -69,7 +85,6 @@ const renderizarCamposBuscarProdutoReact = () =>
             required={BuscarProdutoAtual.required}
             value={BuscarProdutoAtual.value}
             disabled={BuscarProdutoAtual.disabled}
-  
           />
         </div>
       ));

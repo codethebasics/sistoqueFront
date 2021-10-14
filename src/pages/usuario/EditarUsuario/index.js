@@ -7,18 +7,18 @@ const CadastroUsuario = () => {
     {
       nome: "Cadastrar",
       classe: "botaoCadastrar",
-      onClick: () => confirmarCamposReact(),
+      onClick: (e) => confirmarCamposReact(e),
     } /*
   {
     nome:"Excluir",
     classe:"botaoExcluir",
     onClick: () => excluirCampos(),
   },*/,
-    {
-      nome: "Limpar",
-      classe: "botaoLimpar",
-      onClick: () => limparCamposReact(),
-    },
+    // {
+    //   nome: "Limpar",
+    //   classe: "botaoLimpar",
+    //   onClick: () => limparCamposReact(),
+    // },
   ];
 
   const [inputsReact, setInputReact] = useState(inputs);

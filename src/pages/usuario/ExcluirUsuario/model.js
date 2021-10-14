@@ -6,10 +6,10 @@ export const inputs = [
       placeholder: "Digite seu nome Completo",
       value: "",
       type: "text",
-      required: true,
+      required: false,
       classe: "input_tamanho5",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "cargo",
@@ -18,10 +18,10 @@ export const inputs = [
       placeholder: "Digite o Cargo",
       value: "",
       type: "select",
-      required: true,
+      required: false,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,
+      disabled : true,
       options: [
         {
           value: "-",
@@ -51,10 +51,10 @@ export const inputs = [
       label: "Selecione um Usuario",
       placeholder: "Selecione um Usuario",
       value: "",
-      required: true,
+      required: false,
       classe: "input_tamanho1",
       valid : true,
-      disabled : false,
+      disabled : true,
 
     },
   ];

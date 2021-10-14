@@ -35,7 +35,7 @@ const [inputsLoginReact, setInputLoginReact] = useState(inputsLogin);
   };
 
   const renderizarCamposReact = () =>
-    inputs.map((inputAtual) => (
+    inputsReact.map((inputAtual) => (
       <div className="itemFormulario">
         <label for={inputAtual.name}>{inputAtual.label}:</label>
         <br />
@@ -85,7 +85,7 @@ const [inputsLoginReact, setInputLoginReact] = useState(inputsLogin);
     };
 
   const renderizarCamposLoginReact = () =>
-    inputsLogin.map((inputLoginAtual) => (
+    inputsLoginReact.map((inputLoginAtual) => (
       <div className="itemFormulario">
         <label for={inputLoginAtual.name}>{inputLoginAtual.label}:</label>
         <br />
@@ -101,6 +101,7 @@ const [inputsLoginReact, setInputLoginReact] = useState(inputsLogin);
           onChange={(e) => {
             mudarValueInputLogin(e, inputLoginAtual)
           }}
+          style={{ border: !inputLoginAtual.valid ? '1px solid red' : '', backgroundColor:!inputLoginAtual.valid ? '#FFC0CB' : ''}}
         />
       </div>
     ));
@@ -115,8 +116,8 @@ const limparCamposReact = (e) => {
 
 const confirmarCamposReact = (e) => {
       e.preventDefault();
-      const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
-      const camposinputsLoginReact = inputsLoginReact.map((input) => ({...input, value : ''}))
+      const validarCampos = inputsReact.map((input) => ({...input, valid : input.required ?  input.value !== '' : true}))
+      const camposinputsLoginReact = inputsLoginReact.map((input) => ({...input, valid : input.required ?  input.value !== '' : true}))
       setInputReact(validarCampos)
       setInputLoginReact(camposinputsLoginReact)
 

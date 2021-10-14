@@ -13,12 +13,12 @@ const EditarFornecedor = () => {
     nome:"Excluir",
     classe:"botaoExcluir",
     onClick: () => excluirCampos(),
-  },*/,
+  },,
     {
       nome: "Limpar",
       classe: "botaoLimpar",
       onClick: (e) => limparCamposReact(e),
-    },
+    }*/,
   ];
 
   const [inputsReact, setInputReact] = useState(inputs);
@@ -128,22 +128,12 @@ const buscarCep = async (cep) => {
           />
         </div>
       ));
-  
-
-    const limparCamposReact = (e) => {
-      e.preventDefault();
-      const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
-      const camposEnderecoAtualizados = inputsEnderecoReact.map((input) => ({...input, value : ''}))
-      setInputReact(camposAtualizados)
-      setInputEnderecoReact(camposEnderecoAtualizados)
-
-    }
 
     const confirmarCamposReact = (e) => {
       e.preventDefault();
-      const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
+      const validarCampos = inputsReact.map((input) => ({...input, valid: input.required ? input.value !== '' : true}))
       setInputReact(validarCampos)
-      const validarEnderecoCampos = inputsEnderecoReact.map((input) => ({...input, valid: input.value !== ''}))
+      const validarEnderecoCampos = inputsEnderecoReact.map((input) => ({...input, valid: input.required ? input.value !== '' : true }))
       setInputEnderecoReact(validarEnderecoCampos)
 
     }

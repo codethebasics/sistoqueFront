@@ -9,7 +9,7 @@ export const inputs = [
       required: true,
       classe: "input_tamanho5",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "cargo",
@@ -21,7 +21,7 @@ export const inputs = [
       required: true,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,
+      disabled : true,
       options: [
         {
           value: "-",
@@ -51,7 +51,7 @@ export const inputs = [
       required: true,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "CPF",
@@ -63,20 +63,8 @@ export const inputs = [
       required: true,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,
-    },/*
-    {
-      name: "RG",
-      id: "RG",
-      label: "RG",
-      placeholder: "RG",
-      value: "",
-      type: "text",
-      required: true,
-      classe: "input_tamanho3",
-      valid : true,
-      disabled : false,
-    },*/
+      disabled : true,
+    },
     {
       name: "celular",
       id: "celular",
@@ -87,7 +75,7 @@ export const inputs = [
       required: true,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,    
+      disabled : true,
     },];
 
 

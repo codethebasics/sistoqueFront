@@ -9,7 +9,7 @@ export const inputs = [
       required: true,
       classe: "input_tamanho1",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "nomeFantasia",
@@ -21,7 +21,7 @@ export const inputs = [
       required: true,
       classe: "input_tamanho2",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "CNPJ",
@@ -33,7 +33,7 @@ export const inputs = [
       required: true,
       classe: "input_tamanho2",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     ];
 

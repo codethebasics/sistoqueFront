@@ -84,7 +84,7 @@ export const inputs = [
       placeholder: "Celular",
       value: "",
       type: "tel",
-      required: true,
+      required: false,
       classe: "input_tamanho3",
       valid : true,
       disabled : false,    

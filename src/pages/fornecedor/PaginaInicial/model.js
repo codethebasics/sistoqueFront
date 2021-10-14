@@ -9,7 +9,7 @@ export const inputs = [
     required: true,
     classe: "input_tamanho1",
     valid : true,
-    disabled : false,
+    disabled : true,
   },
   {
     name: "nomeFantasia",
@@ -21,7 +21,7 @@ export const inputs = [
     required: true,
     classe: "input_tamanho2",
     valid : true,
-    disabled : false,
+    disabled : true,
   },
   {
     name: "CNPJ",
@@ -33,7 +33,7 @@ export const inputs = [
     required: true,
     classe: "input_tamanho2",
     valid : true,
-    disabled : false,
+    disabled : true,
   },
   {
     name: "telefone",
@@ -45,7 +45,7 @@ export const inputs = [
     required: false,
     classe: "input_tamanho3",
     valid : true,
-    disabled : false,
+    disabled : true,
   },
   {
     name: "celular",
@@ -57,7 +57,7 @@ export const inputs = [
     required: false,
     classe: "input_tamanho3",
     valid : true,
-    disabled : false,
+    disabled : true,
   },
   {
     name: "site",
@@ -69,7 +69,7 @@ export const inputs = [
     required: false,
     classe: "input_tamanho3",
     valid : true,
-    disabled : false,
+    disabled : true,
   },
   {
     name: "representante",
@@ -81,7 +81,7 @@ export const inputs = [
     required: false,
     classe: "input_tamanho3",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
   {
@@ -94,7 +94,7 @@ export const inputs = [
     required: false,
     classe: "input_tamanho3",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
   {
@@ -107,7 +107,7 @@ export const inputs = [
     required: true,
     classe: "input_tamanho3",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },];
 
@@ -122,7 +122,7 @@ export const inputsEndereco = [
     required: true,
     classe: "input_tamanho4",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
   {
@@ -135,7 +135,7 @@ export const inputsEndereco = [
     required: true,
     classe: "input_tamanho2",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
   {
@@ -148,7 +148,7 @@ export const inputsEndereco = [
     required: true,
     classe: "input_tamanho4",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
   {
@@ -161,7 +161,7 @@ export const inputsEndereco = [
     required: true,
     classe: "input_tamanho4",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
   {
@@ -174,7 +174,7 @@ export const inputsEndereco = [
     required: true,
     classe: "input_tamanho4",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
   {
@@ -187,7 +187,7 @@ export const inputsEndereco = [
     required: true,
     classe: "input_tamanho4",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
   {
@@ -200,7 +200,7 @@ export const inputsEndereco = [
     required: true,
     classe: "input_tamanho4",
     valid : true,
-    disabled : false,
+    disabled : true,
 
   },
 ];

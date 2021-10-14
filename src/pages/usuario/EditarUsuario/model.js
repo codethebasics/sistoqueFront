@@ -6,10 +6,10 @@ export const inputs = [
       placeholder: "Digite seu nome Completo",
       value: "",
       type: "text",
-      required: true,
+      required: false,
       classe: "input_tamanho5",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "cargo",
@@ -18,10 +18,10 @@ export const inputs = [
       placeholder: "Digite o Cargo",
       value: "",
       type: "select",
-      required: true,
+      required: false,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,
+      disabled : true,
       options: [
         {
           value: "-",
@@ -48,10 +48,10 @@ export const inputs = [
       placeholder: "Data Nascimento",
       value: "",
       type: "date",
-      required: true,
+      required: false,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "CPF",
@@ -60,10 +60,10 @@ export const inputs = [
       placeholder: "CPF",
       value: "",
       type: "text",
-      required: true,
+      required: false,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "RG",
@@ -72,10 +72,10 @@ export const inputs = [
       placeholder: "RG",
       value: "",
       type: "text",
-      required: true,
+      required: false,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,
+      disabled : true,
     },
     {
       name: "celular",
@@ -84,10 +84,10 @@ export const inputs = [
       placeholder: "Celular",
       value: "",
       type: "tel",
-      required: true,
+      required: false,
       classe: "input_tamanho3",
       valid : true,
-      disabled : false,    
+      disabled : true,    
     },];
 
 export const inputsLogin = [
@@ -98,10 +98,10 @@ export const inputsLogin = [
       placeholder: "Login",
       value: "",
       type: "text",
-      required: true,
+      required: false,
       classe: "input_tamanho2",
       valid : true,
-      disabled : false,
+      disabled : true,
 
     },
     {
@@ -111,10 +111,10 @@ export const inputsLogin = [
       placeholder: "Senha",
       value: "",
       type: "password",
-      required: true,
+      required: false,
       classe: "input_tamanho2",
       valid : true,
-      disabled : false,
+      disabled : true,
 
     },
     
@@ -127,10 +127,10 @@ export const inputsLogin = [
       label: "Selecione um Usuario",
       placeholder: "Selecione um Usuario",
       value: "",
-      required: true,
+      required: false,
       classe: "input_tamanho1",
       valid : true,
-      disabled : false,
+      disabled : true,
 
     },
   ];

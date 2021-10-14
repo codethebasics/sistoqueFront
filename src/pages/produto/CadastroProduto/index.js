@@ -7,7 +7,7 @@ const CadastroProduto = () => {
     {
       nome: "Cadastrar",
       classe: "botaoCadastrar",
-      onClick: () => confirmarCamposReact(),
+      onClick: (e) => confirmarCamposReact(e),
     } /*
   {
     nome:"Excluir",
@@ -17,7 +17,7 @@ const CadastroProduto = () => {
     {
       nome: "Limpar",
       classe: "botaoLimpar",
-      onClick: () => limparCamposReact(),
+      onClick: (e) => limparCamposReact(e),
     },
   ];
 
@@ -34,12 +34,12 @@ const CadastroProduto = () => {
   };
 
   const renderizarCamposReact = () =>
-    inputs.map((inputAtual) => (
+    inputsReact.map((inputAtual) => (
       <div className="itemFormulario">
         <label for={inputAtual.name}>{inputAtual.label}:</label>
         <br />
         {
-          inputAtual.type != 'select' ? (
+          inputAtual.type != 'select' && inputAtual.type != "textarea" ? (
             <input
               placeholder={inputAtual.placeholder}
               name={inputAtual.name}
@@ -54,7 +54,24 @@ const CadastroProduto = () => {
               }}
               style={{ border: !inputAtual.valid ? '1px solid red' : '', backgroundColor:!inputAtual.valid ? '#FFC0CB' : ''}}
             />
-          ) : (
+          ) :
+            inputAtual.type == "textarea"   ? (
+              <textarea 
+              placeholder={inputAtual.placeholder}
+              name={inputAtual.name}
+              id={inputAtual.id}
+              type={inputAtual.type}
+              required={inputAtual.required}
+              value={inputAtual.value}
+              disabled={inputAtual.disabled}
+              className={inputAtual.classe}
+              onChange={(e) => {
+                mudarValueInput(e, inputAtual)
+              }}
+              style={{ border: !inputAtual.valid ? '1px solid red' : '', backgroundColor:!inputAtual.valid ? '#FFC0CB' : ''}}
+            ></textarea>
+            )
+          : (
             <select
               placeholder={inputAtual.placeholder}
               name={inputAtual.name}
@@ -66,7 +83,7 @@ const CadastroProduto = () => {
               onChange={(e) => {mudarValueInput(e, inputAtual)}}
               style={{ border: !inputAtual.valid ? '1px solid red' : '', backgroundColor:!inputAtual.valid ? '#FFC0CB' : ''}}
             > {
-              inputAtual.options.map((option) => (<option value={option.value}> {option.text} </option>))
+              (inputAtual.options || []).map((option) => (<option value={option.value}> {option.text} </option>))
             }</select>
           )
         }
@@ -81,7 +98,7 @@ const CadastroProduto = () => {
 
     const confirmarCamposReact = (e) => {
       e.preventDefault();
-      const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
+      const validarCampos = inputsReact.map((input) => ({...input, valid : input.required ? input.value !== '' : true}))
       setInputReact(validarCampos)
     }
 
@@ -105,7 +122,7 @@ const CadastroProduto = () => {
 
   return (
     <div className="Formulario">
-      <h2>Editar Produto</h2>
+      <h2>Cadastrar Produto</h2>
       <fieldset>
         {/*renderizarCampos()*/}
         {renderizarCamposBuscarProdutoReact()}

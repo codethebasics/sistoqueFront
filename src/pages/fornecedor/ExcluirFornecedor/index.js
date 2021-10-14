@@ -1,24 +1,17 @@
 import Botoes from "../../../components/Botoes";
 import { inputs, buscarFornecedor } from "./model";
 import { useState } from "react";
+import Swal from 'sweetalert2';
 
 const ExcluirFornecedor = () => {
   const botoes = [
-    /*{
-      nome: "Confirmar",
-      classe: "botaoCadastrar",
-      onClick: () => confirmarCamposReact(),
-    } */
+
   {
     nome:"Excluir",
     classe:"botaoExcluir",
-    onClick: (e) => excluirCamposReact(e)
+    onClick: (e) => excluirFornecedor(e)
   },
-    {
-      nome: "Limpar",
-      classe: "botaoLimpar",
-      onClick: (e) => limparCamposReact(e),
-    },
+    
   ];
 
 const [inputsReact, setInputReact] = useState(inputs);
@@ -71,25 +64,14 @@ buscarFornecedorReact.map((BuscarFornecedorAtual) => (
           />
         </div>
       ));
-  
 
-    const limparCamposReact = (e) => {
-      e.preventDefault();
-      const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
-      const camposEnderecoAtualizados = buscarFornecedorReact.map((input) => ({...input, value : ''}))
-      setInputReact(camposAtualizados)
-      setInputbuscarFornecedorReact(camposEnderecoAtualizados)
-
-    }
-
-    const excluirCamposReact = (e) => {
-      e.preventDefault();
-      const excluirCampos = inputsReact.map((input) => ({...input, valid: input.value !== ''}))
-      const camposEnderecoAtualizados = buscarFornecedorReact.map((input) => ({...input, value : ''}))
-      setInputReact(excluirCampos)
-      setInputbuscarFornecedorReact(camposEnderecoAtualizados)
-
-    }
+  const excluirFornecedor = (e) =>  {
+    e.preventDefault();
+    Swal.fire({
+      title: "O fornecedor foi excluido",
+      icon: "success"
+    })
+  }
 
   return (
     <div className="Formulario">

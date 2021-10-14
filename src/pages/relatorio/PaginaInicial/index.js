@@ -24,18 +24,21 @@ const ConsultarRelatorio = () => {
 
 const [inputsReact, setInputReact] = useState(inputs);
 
+
 const mudarValueInput = (e, input) => {
-    const htmlInputs = e.target;
-    input.value = htmlInputs.value;
-    const inputsAtualizados = inputsReact.map((inputsReactAtual) => {
-      if (inputsReactAtual.id == input.id) return input;
-      else return inputsReactAtual;
-    });
-    setInputReact(inputsAtualizados)
-  };
+  const htmlInputs = e.target;
+  input.value = htmlInputs.value;
+  const inputsAtualizados = inputsReact.map((inputsReactAtual) => {
+    if (inputsReactAtual.id == input.id) return input;
+    else return inputsReactAtual;
+  });
+  console.log("chamou")
+  setInputReact(inputsAtualizados)
+};
+
 
 const renderizarCamposReact = () =>
-    inputs.map((inputAtual) => (
+  inputsReact.map((inputAtual) => (
       <div className="itemFormulario">
         <label for={inputAtual.name}>{inputAtual.label}:</label>
         <br />
@@ -80,7 +83,7 @@ const limparCamposReact = (e) => {
 
     const confirmarCamposReact = (e) => {
       e.preventDefault();
-      const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
+      const validarCampos = inputsReact.map((input) => ({...input, valid : input.required ? input.value !== '' : true}))
       setInputReact(validarCampos)
     }
 

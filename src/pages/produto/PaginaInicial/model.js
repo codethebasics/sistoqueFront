@@ -22,30 +22,7 @@ export const inputs = [
       classe: "input_tamanho3",
       valid : true,
       disabled : false,
-    },
-    {
-      name: "fornecedor",
-      id: "fornecedor",
-      label: "Fornecedor",
-      placeholder: "Fornecedor",
-      value: "",
-      type: "select",
-      required: true,
-      classe: "input_tamanho3",
-      valid : true,
-      disabled : false,
-    },
-    {
-      name: "descricaoProduto",
-      id: "descricaoProduto",
-      label: "Descrição do Produto",
-      placeholder: "Descrição do Produto",
-      value: "",
-      type: "text",
-      required: true,
-      classe: "input_tamanho3",
-      valid : true,
-      disabled : false,
+      options: []
     },
     {
       name: "volume",
@@ -55,7 +32,7 @@ export const inputs = [
       value: "",
       type: "text",
       required: true,
-      classe: "input_tamanho3",
+      classe: "input_tamanho2",
       valid : true,
       disabled : false,    
     },{
@@ -66,19 +43,30 @@ export const inputs = [
       value: "",
       type: "text",
       required: true,
-      classe: "input_tamanho3",
+      classe: "input_tamanho2",
       valid : true,
       disabled : false,    
+    },{
+      name: "descricaoProduto",
+      id: "descricaoProduto",
+      label: "Descrição do Produto",
+      placeholder: "Descrição do Produto",
+      value: "",
+      type: "textarea",
+      required: true,
+      classe: "input_tamanho1",
+      valid : true,
+      disabled : false,
     },];
 
-
-  export const buscarProduto = [
+export const buscarProduto = [
     {
       name: "BuscarProduto",
       id: "BuscarProduto",
       label: "Selecione um Produto",
       placeholder: "Selecione um Produto",
       value: "",
+      type: "select",
       required: true,
       classe: "input_tamanho1",
       valid : true,

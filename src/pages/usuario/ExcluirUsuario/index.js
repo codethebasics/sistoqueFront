@@ -1,7 +1,7 @@
 import Botoes from "../../../components/Botoes";
 import { inputs, buscarUsuario } from "./model";
 import { useState } from "react";
-
+import Swal from 'sweetalert2';
 const ExcluirUsuario = () => {
   const botoes = [
     /*{
@@ -12,12 +12,13 @@ const ExcluirUsuario = () => {
   {
     nome:"Excluir",
     classe:"botaoExcluir",
+    onClick: (e) => excluirUsuario(e)
   },
-    {
-      nome: "Limpar",
-      classe: "botaoLimpar",
-      onClick: () => limparCamposReact(),
-    },
+    // {
+    //   nome: "Limpar",
+    //   classe: "botaoLimpar",
+    //   onClick: () => limparCamposReact(),
+    // },
   ];
 
   const [inputsReact, setInputReact] = useState(inputs);
@@ -92,17 +93,12 @@ const ExcluirUsuario = () => {
       ));
   
 
-    const limparCamposReact = (e) => {
-      e.preventDefault();
-      const camposAtualizados = inputsReact.map((input) => ({...input, value : ''}))
-      setInputReact(camposAtualizados)
-    }
-
-    const confirmarCamposReact = (e) => {
-      e.preventDefault();
-      const validarCampos = inputsReact.map((input) => ({...input, value : input.valid !== ''}))
-      setInputReact(validarCampos)
-    }
+      const excluirUsuario = () => {
+        Swal.fire({
+          title: "Usuário excluido!",
+          icon: "success"
+        })
+      }
 
   return (
     <div className="Formulario">

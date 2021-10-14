@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 export const Login = () => {
@@ -13,7 +14,11 @@ export const Login = () => {
 
         if(email == '' || password == '') {
             
-            alert("Preencha os campos")
+            Swal.fire({
+                title: 'Preencha os campos',
+                icon: 'error',
+                confirmButtonText: 'Tente novamente'
+              })
             return 
         }
         
@@ -26,7 +31,6 @@ export const Login = () => {
             <figure className='logotipoLogin'><img src='../img/logo1.png' alt='Logotipo Kokimbos'></img></figure>
             <input type="email" id="txt_email" placeholder='Digite seu Login' /> <br />
             <input type="password" id="txt_password" placeholder='Digite sua Senha' /><br />
-            <p className='esqueceuSenha'><a>Esqueceu a senha?</a></p>
             <input type="submit" value="Confirmar" className='botaoCadastrar' onClick={onLogin} />
         </div>
         </div>
