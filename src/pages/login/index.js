@@ -21,8 +21,30 @@ export const Login = () => {
               })
             return 
         }
-        
-        history.push('/sistema');
+
+        fetch('http://localhost:4000/users/authenticate', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                login: email,
+                senha: password
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+                history.push('/sistema');
+            }
+            else {
+                alert('login ou senha inválidos');
+                document.querySelector("#txt_email").value = "";
+                const password = document.querySelector("#txt_password").value = "";
+            }
+        });
     }
 
     return (
