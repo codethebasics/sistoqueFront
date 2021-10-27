@@ -120,6 +120,30 @@ const CadastroProduto = () => {
         </div>
       ));
 
+    const listarCategorias = () => {
+
+        const categoria = document.querySelector("#categoria")
+
+        fetch('http://localhost:4000/categories', {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                for (let i = 0; i < data.length; i++) {
+                    let opt = document.createElement('option');
+                    opt.value = data[i].id;
+                    opt.innerHTML = data[i].nome;
+                    categoria.appendChild(opt);
+                }
+            });
+    };
+    listarCategorias();
+
   return (
     <div className="Formulario">
       <h2>Cadastrar Produto</h2>
