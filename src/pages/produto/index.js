@@ -36,9 +36,40 @@ export const Produto = () => {
         
     ]
 
+    const listarCategorias = () => {
+
+        const categoria = document.querySelector("#categoria");
+
+        if (categoria) {
+            let i, L = categoria.options.length - 1;
+            for(i = L; i >= 0; i--) {
+                categoria.remove(i);
+            }
+        }
+
+        fetch('http://localhost:4000/categories', {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                for (let i = 0; i < data.length; i++) {
+                    let opt = document.createElement('option');
+                    opt.value = data[i].id;
+                    opt.innerHTML = data[i].nome;
+                    if (categoria)
+                        document.querySelector("#categoria").appendChild(opt);
+                }
+            });
+    };
+
     return (
         <div>
-            <Cabecalho 
+            <Cabecalho
                 nomeCabecalho="Produto"
                 links={links}
             />
