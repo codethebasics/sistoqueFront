@@ -208,6 +208,38 @@ const CadastroProduto = () => {
             });
     };
 
+    const listarProdutos = () => {
+
+        const buscarProduto = document.querySelector("#BuscarProduto");
+
+        if (document.querySelector("#buscarProduto")) {
+            let i, L = buscarProduto.options.length - 1;
+            for(i = L; i >= 0; i--) {
+                buscarProduto.remove(i);
+            }
+        }
+
+        if (buscarProduto) {
+            fetch('http://localhost:4000/products', {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    for (let i = 0; i < data.length; i++) {
+                        let opt = document.createElement('option');
+                        opt.value = data[i].id;
+                        opt.innerHTML = data[i].nome;
+                        document.querySelector("#BuscarProduto").appendChild(opt);
+                    }
+                });
+        }
+    };
+
     return (
         <div className="Formulario">
             <h2>Cadastrar Produto</h2>
@@ -219,6 +251,7 @@ const CadastroProduto = () => {
                 {/*renderizarCampos()*/}
                 {renderizarCamposReact()}
                 {listarCategorias()}
+                {listarProdutos()}
             </fieldset>
             <Botoes botoes={botoes}/>
         </div>

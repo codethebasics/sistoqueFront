@@ -23,6 +23,38 @@ const CadastroFornecedor = () => {
     const [inputsReact, setInputReact] = useState(inputs);
     const [inputsEnderecoReact, setInputEnderecoReact] = useState(inputsEndereco);
 
+    const listarFornecedores = () => {
+
+        const BuscarFornecedor = document.querySelector("#BuscarFornecedor");
+
+        if (document.querySelector("#BuscarFornecedor")) {
+            let i, L = BuscarFornecedor.options.length - 1;
+            for (i = L; i >= 0; i--) {
+                BuscarFornecedor.remove(i);
+            }
+        }
+
+        if (BuscarFornecedor) {
+            fetch('http://localhost:4000/products', {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    for (let i = 0; i < data.length; i++) {
+                        let opt = document.createElement('option');
+                        opt.value = data[i].id;
+                        opt.innerHTML = data[i].nome;
+                        document.querySelector("#BuscarFornecedor").appendChild(opt);
+                    }
+                });
+        }
+    };
+
     const mudarValueInput = (e, input) => {
         const htmlInputs = e.target;
         input.value = htmlInputs.value;

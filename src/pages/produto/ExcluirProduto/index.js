@@ -13,6 +13,38 @@ const ExcluirProduto = () => {
 
   const [inputsReact, setInputReact] = useState(inputs);
 
+    const listarProdutos = () => {
+
+        const buscarProduto = document.querySelector("#BuscarProduto");
+
+        if (document.querySelector("#BuscarProduto")) {
+            let i, L = buscarProduto.options.length - 1;
+            for (i = L; i >= 0; i--) {
+                buscarProduto.remove(i);
+            }
+        }
+
+        if (buscarProduto) {
+            fetch('http://localhost:4000/products', {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    for (let i = 0; i < data.length; i++) {
+                        let opt = document.createElement('option');
+                        opt.value = data[i].id;
+                        opt.innerHTML = data[i].nome;
+                        document.querySelector("#BuscarProduto").appendChild(opt);
+                    }
+                });
+        }
+    };
+
   const mudarValueInput = (e, input) => {
     const htmlInputs = e.target;
     input.value = htmlInputs.value;
@@ -115,6 +147,7 @@ const ExcluirProduto = () => {
       </fieldset>
       <fieldset>
         {/*renderizarCampos()*/}
+        {listarProdutos()}
         {renderizarCamposReact()}
       </fieldset>
       <Botoes botoes={botoes} />
