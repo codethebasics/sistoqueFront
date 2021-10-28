@@ -31,6 +31,7 @@ const CadastroProduto = () => {
             else return inputsReactAtual;
         });
         setInputReact(inputsAtualizados)
+        console.log(inputsAtualizados);
     };
 
     const renderizarCamposReact = () =>
@@ -109,6 +110,8 @@ const CadastroProduto = () => {
     }
 
     const confirmarCamposReact = (e) => {
+
+        console.log('ok');
         e.preventDefault();
         const validarCampos = inputsReact.map((input) => ({
             ...input,
@@ -122,60 +125,38 @@ const CadastroProduto = () => {
         const localArmazenamento = document.querySelector("#localArmazenamento").value
         const descricaoProduto = document.querySelector("#descricaoProduto").value
 
-        console.log('cadastrando produto...');
-        console.log(nome);
         console.log(categoria);
-        console.log(volume);
-        console.log(localArmazenamento);
-        console.log(descricaoProduto);
+        console.log(nome)
 
-        // fetch('http://localhost:4000/providers/register', {
-        //     method: 'post',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //         'Authorization': `Bearer ${localStorage.getItem('token')}`
-        //     },
-        //     body: JSON.stringify({
-        //         razaoSocial: razaoSocial,
-        //         nomeFantasia: nomeFantasia,
-        //         cnpj: cnpj,
-        //         email: 'email@fornecedor.com',
-        //         telefone: telefone,
-        //         site: site,
-        //         celular: celular,
-        //         cep: cep,
-        //         nomeEndereco: logradouro,
-        //         numero: numero,
-        //         complemento: complemento,
-        //         bairro: bairro,
-        //         cidade: cidade,
-        //         estado: estado,
-        //         representante: 1,
-        //         celularRepresentante: celularRepresentante
-        //     })
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         if (data) {
-        //             console.log(data);
-        //             document.querySelector("#razaoSocial").value = ""
-        //             document.querySelector("#nomeFantasia").value = "";
-        //             document.querySelector("#CNPJ").value = "";
-        //             document.querySelector("#telefone").value = "";
-        //             document.querySelector("#celular").value = "";
-        //             document.querySelector("#site").value = "";
-        //             document.querySelector("#representante").value = "";
-        //             document.querySelector("#celularRepresentante").value = "";
-        //             document.querySelector("#CEP").value = "";
-        //             document.querySelector("#nomeLogradouro").value = "";
-        //             document.querySelector("#numero").value = "";
-        //             document.querySelector("#complemento").value = "";
-        //             document.querySelector("#bairro").value = "";
-        //             document.querySelector("#cidade").value = "";
-        //             document.querySelector("#estado").value = "";
-        //         }
-        //     }).catch(e => console.log(e));
+        fetch('http://localhost:4000/products/register', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({
+                nome: nome,
+                categoria: categoria,
+                volume: volume,
+                localArmazenamento: localArmazenamento,
+                descricao: descricaoProduto,
+                preco: 1,
+                unidadeMedida: 'L',
+                fornecedor: 1
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.querySelector("#nome").value = ""
+                    document.querySelector("#categoria").value = "";
+                    document.querySelector("#volume").value = "";
+                    document.querySelector("#localArmazenamento").value = "";
+                    document.querySelector("#descricaoProduto").value = "";
+                    alert('produto cadastrado com sucesso!');
+                }
+            }).catch(e => console.log(e));
 
     }
 
@@ -200,6 +181,13 @@ const CadastroProduto = () => {
     const listarCategorias = () => {
 
         const categoria = document.querySelector("#categoria");
+
+        if (document.querySelector("#categoria")) {
+            let i, L = categoria.options.length - 1;
+            for(i = L; i >= 0; i--) {
+                categoria.remove(i);
+            }
+        }
 
         fetch('http://localhost:4000/categories', {
             method: 'get',

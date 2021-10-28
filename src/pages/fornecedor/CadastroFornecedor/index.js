@@ -158,6 +158,9 @@ const CadastroFornecedor = () => {
         const bairro = document.querySelector("#bairro").value
         const cidade = document.querySelector("#cidade").value
         const estado = document.querySelector("#estado").value
+        const emailRepresentante = document.querySelector("#emailRepresentante").value
+
+        console.log(razaoSocial);
 
         fetch('http://localhost:4000/providers/register', {
             method: 'post',
@@ -170,7 +173,7 @@ const CadastroFornecedor = () => {
                 razaoSocial: razaoSocial,
                 nomeFantasia: nomeFantasia,
                 cnpj: cnpj,
-                email: 'email@fornecedor.com',
+                email: emailRepresentante,
                 telefone: telefone,
                 site: site,
                 celular: celular,

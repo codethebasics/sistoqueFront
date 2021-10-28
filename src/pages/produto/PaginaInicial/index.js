@@ -20,6 +20,13 @@ const mudarValueInput = (e, input) => {
 
         const categoria = document.querySelector("#categoria");
 
+        if (document.querySelector("#categoria")) {
+            let i, L = categoria.options.length - 1;
+            for(i = L; i >= 0; i--) {
+                categoria.remove(i);
+            }
+        }
+
         fetch('http://localhost:4000/categories', {
             method: 'get',
             headers: {
